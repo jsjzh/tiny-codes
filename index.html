@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>demo</title>
+  </head>
+  <body>
+    <script>
+      // window.report = (...args) => {
+      //   console.log("---- report ----");
+      //   console.log(args);
+      //   new Image().src = "hello wrold";
+      //   console.log("---- report ----");
+      // };
+
+      // const temp = window.onerror;
+      // window.onerror = function (msg, url, row, col, error) {
+      //   if (typeof temp === "function") {
+      //     try {
+      //       temp(msg, url, row, col, error);
+      //     } catch (error) {
+      //       throw error;
+      //     }
+      //   }
+      //   console.log("---- window.onerror ----");
+
+      //   // console.log("msg", msg);
+      //   // console.log("url", url);
+      //   // console.log("row", row);
+      //   // console.log("col", col);
+      //   // console.log("error", error);
+
+      //   console.log("source: ", url);
+      //   console.log("row: ", row);
+      //   console.log("col: ", col);
+      //   console.log("type: ", error.name);
+      //   console.log("error: ", error.message);
+      //   console.log("message: ", error.stack);
+
+      //   console.log("---- window.onerror ----");
+      // };
+
+      // window.addEventListener(
+      //   "error",
+      //   (errorEvent) => {
+      //     console.log(errorEvent);
+      //     // 过滤js error
+      //     let target = event.target || event.srcElement;
+      //     let isElementTarget =
+      //       target instanceof HTMLScriptElement ||
+      //       target instanceof HTMLLinkElement ||
+      //       target instanceof HTMLImageElement;
+      //     if (!isElementTarget) return false;
+      //     // 上报资源地址
+      //     let url = target.src || target.href;
+      //     console.log(url);
+      //   },
+      //   true
+      // );
+
+      window.addEventListener("unhandledrejection", (event) => {
+        console.log("unhandledrejection", event);
+        // event.preventDefault();
+      });
+
+      // const img = new Image();
+
+      // img.src = "https://c-ssl.duitang.com/uploads/item/201508/17/20150817152942_sQjaJ.thumb.1000_0.jpeg";
+    </script>
+    <img
+      src="https://c-ssl.duitang.com/uploads/item/201508/17/20150817152942_sQjaJ.thumb.1.jpeg"
+    />
+    <script src="./demo.js"></script>
+    <!-- <script src="./demo.js"></script>
+    <script
+      src="http://127.0.0.1:8081/test.js"
+      crossorigin="anonymous"
+    ></script> -->
+  </body>
+</html>
