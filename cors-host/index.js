@@ -1,7 +1,7 @@
-const sleeps = (time) =>
+const sleep = (time) =>
   new Promise((resolve) =>
     setTimeout(() => {
-      console.log(promiseDemo);
+      console.log(promiseVariable);
       resolve();
     }, time)
   );
@@ -11,12 +11,12 @@ try {
   // function demo()
   // 无法捕获异步错误
   setTimeout(() => {
-    console.log(demo);
+    console.log(variable);
   }, 1000);
   // 通过给异步函数包装一个 try catch 可以捕获错误
   setTimeout(() => {
     try {
-      console.log(demo);
+      console.log(variable);
     } catch (error) {
       throw error;
     }
@@ -26,16 +26,7 @@ try {
     await sleep(1000);
   })();
   // 能够捕获错误
-  console.log(demo);
-
-  // null.map();
+  console.log(variable);
 } catch (error) {
   throw error;
-  console.log("---- try catch ----");
-  console.log("try catch name", error.name);
-  console.log("try catch message", error.message);
-  console.log("try catch stack", error.stack);
-  // console.log(error.stack.split("at").map((item) => item.trim()));
-  console.log("try catch error", error);
-  console.log("---- try catch ----");
 }
