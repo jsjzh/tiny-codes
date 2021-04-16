@@ -1,6 +1,11 @@
 {
-  "name": "demo",
+  "name": "tiny-codes",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "repository": "git@github.com:jsjzh/tiny-codes.git",
+  "author": "kimimi_king <kimimi_king@163.com>",
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
 }
