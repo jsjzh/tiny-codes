@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:jsjzh/tiny-codes.git",
+  "author": "kimimi_king <kimimi_king@163.com>",
   "license": "MIT",
   "scripts": {
     "step:1": "npx http-server ./ -p 7001",
