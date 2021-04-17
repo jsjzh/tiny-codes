@@ -6,9 +6,12 @@
   "author": "kimimi_king <kimimi_king@163.com>",
   "license": "MIT",
   "scripts": {
-    "step:1": "npx http-server ./ -p 7001",
-    "step:2": "npx http-server ./cors-host -p 7002",
-    "step:3": "npx http-server ./cors-host -p 7002 --cors"
+    "step:1": "npx http-server ./step:1 -p 7001",
+    "step:2": "npx http-server ./step:2 -p 7001",
+    "step:3": "npx http-server ./step:3 -p 7001",
+    "step:4": "npx http-server ./step:4 -p 7001",
+    "step:4-1": "npx http-server ./step:4/cors-host -p 7002",
+    "step:4-2": "npx http-server ./step:4/cors-host -p 7002 --cors"
   },
   "dependencies": {
     "http-server": "^0.12.3"

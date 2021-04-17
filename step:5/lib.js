@@ -5,7 +5,15 @@ const reportError = (...args) => {
 // 捕获 try catch 的错误
 // 捕获其他位置的错误
 const codeListener = (message, fileName, col, row, error) => {
-  reportError(error.name, fileName, error.message, col, row);
+  if (error) {
+    reportError(error.name, fileName, error.message, col, row);
+  } else {
+    console.log("message: ", message);
+    console.log("fileName: ", fileName);
+    console.log("col: ", col);
+    console.log("row: ", row);
+    console.log("error: ", error);
+  }
 };
 
 // 捕获 promise 中，reject 了错误
