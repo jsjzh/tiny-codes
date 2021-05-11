@@ -13,10 +13,11 @@ http
     });
 
     request.on("end", () => {
-      console.log("end");
+      console.log("------ end ------");
+      console.log("------ body ------", body);
       const data = body.toString("utf8");
-      console.log(data);
-      console.log(typeof data);
+      console.log("------ data ------", data);
+      console.log("------ typeof ------", typeof data);
     });
 
     response.setHeader("Set-Cookie", ["name=king", "age=/!@#$%^&*()18"]);

@@ -4,5 +4,9 @@
   "main": "index.js",
   "repository": "git@github.com:jsjzh/tiny-codes.git",
   "author": "kimimi_king <kimimi_king@163.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@types/qs": "^6.9.6",
+    "qs": "^6.10.1"
+  }
 }
