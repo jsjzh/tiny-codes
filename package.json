@@ -5,6 +5,10 @@
   "repository": "git@github.com:jsjzh/tiny-codes.git",
   "author": "kimimi_king <kimimi_king@163.com>",
   "license": "MIT",
+  "scripts": {
+    "start:frontend": "node frontend-server.js",
+    "start:backend": "node backend-server.js"
+  },
   "dependencies": {
     "@types/qs": "^6.9.6",
     "qs": "^6.10.1"

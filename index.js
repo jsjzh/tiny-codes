@@ -1,53 +1,58 @@
-const qs = require("querystring");
-const qs2 = require("qs");
+// from qs
+const qs = window.Qs;
+const info = { name: "king", age: 18, isUser: true };
 
-const obj = {
-  name: "king",
-  age: 18,
-  foos: [1, 2, 3, 4, 5],
-  bars: [
-    { name: 123, age: 321 },
-    { name: 123, age: 321 },
-  ],
-};
+// const from = new FormData();
 
-const foo = qs.stringify(obj);
-const bar = qs2.stringify(obj);
+// for (const key in info) {
+//   if (info.hasOwnProperty(key)) from.append(key, info[key]);
+// }
 
-console.log(foo);
-console.log(bar);
-
-console.log(qs.parse(foo));
-console.log(qs.parse(bar));
-
-console.log(qs2.parse(foo));
-console.log(qs2.parse(bar));
-
-function handleSubmit(event) {
-  debugger;
-  // action="http://127.0.0.1:7001/filter?key=data"
-
-  console.log("object");
-  event.preventDefault();
-}
-
-function ajax(url) {
+function ajax(url, data, headers, type) {
   const request = new XMLHttpRequest();
-  request.onreadystatechange = () => {
-    console.log(request);
-  };
-  request.open("POST", url, true);
-  request.withCredentials = true;
-  // request.setRequestHeader("Content-Type", "application/json");
-  // request.setRequestHeader("Content-Type", "multipart/form-data");
-  // request.setRequestHeader("Content-Type", "text/plain");
-  request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  // request.setRequestHeader("SELF-HEADER", "hello");
-  const from = new FormData();
-  // from.append("name", "king");
-  // request.send(from);
-  // request.send(JSON.stringify({ name: "king", age: 18, demo: 123 }));
-  request.send("user=username&pass=password");
+
+  const currentUrl = `${url}?type=${type || "unknown"}&header=${
+    headers["Content-Type"] || "unknown"
+  }`;
+
+  request.open("POST", currentUrl, true);
+
+  for (const header in headers) {
+    if (headers.hasOwnProperty(header)) {
+      const value = headers[header];
+      request.setRequestHeader(header, value);
+    }
+  }
+
+  request.send(data);
 }
 
-ajax("http://localhost.charlesproxy.com:7001/filter?key=data");
+const url = "http://localhost.charlesproxy.com:7001/filter";
+
+const contentTypeFromUrl = {
+  "Content-Type": "application/x-www-form-urlencoded",
+};
+const contentTypeJson = { "Content-Type": "application/json" };
+
+const contentTypeFormData = { "Content-Type": "multipart/form-data" };
+const contentTypeTextPlain = { "Content-Type": "text/plain" };
+
+ajax(url, qs.stringify(info), contentTypeFromUrl, "qs");
+ajax(url, qs.stringify(info), contentTypeJson, "qs");
+// ajax(url, qs.stringify(info), contentTypeFormData, "qs");
+// ajax(url, qs.stringify(info), contentTypeTextPlain, "qs");
+
+ajax(url, JSON.stringify(info), contentTypeFromUrl, "json");
+ajax(url, JSON.stringify(info), contentTypeJson, "json");
+// ajax(url, JSON.stringify(info), contentTypeFormData, "json");
+// ajax(url, JSON.stringify(info), contentTypeTextPlain, "json");
+
+// ajax(url, info, contentTypeFromUrl, "base");
+// ajax(url, info, contentTypeJson, "base");
+// ajax(url, info, contentTypeFormData, "base");
+// ajax(url, info, contentTypeTextPlain, "base");
+
+// ajax(url, from, contentTypeFromUrl);
+// ajax(url, from, contentTypeJson);
+// ajax(url, from, contentTypeFormData);
+// ajax(url, from, contentTypeTextPlain);
