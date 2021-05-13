@@ -1,6 +1,16 @@
-// from qs
+// window.Qs from BootCDN
 const qs = window.Qs;
-const info = { name: "king", age: 18, isUser: true };
+
+const info = {
+  name: "king",
+  age: 18,
+  isAdmain: true,
+  groups: [1, 2, 3],
+  address: "",
+  foo: null,
+  bar: undefined,
+  extra: { wechat: "kimimi_king", qq: 454075623 },
+};
 
 // const from = new FormData();
 
@@ -8,10 +18,10 @@ const info = { name: "king", age: 18, isUser: true };
 //   if (info.hasOwnProperty(key)) from.append(key, info[key]);
 // }
 
-function ajax(url, data, headers, type) {
+function ajax(url, data, headers, type = "unknown") {
   const request = new XMLHttpRequest();
 
-  const currentUrl = `${url}?type=${type || "unknown"}&header=${
+  const currentUrl = `${url}?type=${type}&header=${
     headers["Content-Type"] || "unknown"
   }`;
 

@@ -42,6 +42,7 @@ server.on("request", (request, response) => {
       // 若前端想要使用 application/json 传输数据
       // 需要后端配置允许 Content-Type Headers
       "Access-Control-Allow-Headers": "Content-Type",
+      // "Access-Control-Allow-Methods": "*",
     });
 
     response.end(
