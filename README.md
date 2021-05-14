@@ -14,7 +14,7 @@
 
 > `frontend-server.js` 只是单纯的起了一个服务，该服务会在用户访问 `http://127.0.0.1:3000` 时返回 `index.html` 和 `index.js`。
 
-### start:backend
+### npm run start:backend
 
 启动后端服务，为前端服务提供接口，该服务会将接收到的请求体以如下方式返回，具体处理可以看 `backend-server.js`。
 
