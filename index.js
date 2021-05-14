@@ -37,7 +37,7 @@ function ajax(url, data, headers, type = "unknown") {
   request.send(data);
 }
 
-const url = "http://localhost.charlesproxy.com:7001/filter";
+const url = "http://127.0.0.1:7001/filter";
 
 const contentTypeFromUrl = {
   "Content-Type": "application/x-www-form-urlencoded",

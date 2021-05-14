@@ -38,7 +38,7 @@ server.on("request", (request, response) => {
     console.log("------ end ------");
 
     response.writeHead(200, {
-      "Access-Control-Allow-Origin": "http://localhost.charlesproxy.com:3000",
+      "Access-Control-Allow-Origin": "http://127.0.0.1:3000",
       // 若前端想要使用 application/json 传输数据
       // 需要后端配置允许 Content-Type Headers
       "Access-Control-Allow-Headers": "Content-Type",
