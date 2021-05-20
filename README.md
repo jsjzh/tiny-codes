@@ -1,16 +1,13 @@
-# tiny-codes
+# tiny-codes demo/study-image
 
 ## 说明
 
-这个仓库具体都会用来放小 demo 的代码，由于可能会有很多不同课题的 demo，所以这里就用 branch 来作区分
+TODO
 
-由于 `node_modules` 会被加入 `.gitignore` 列表，所以不同的 demo 或许需要重新安装依赖
+## 使用
 
-## Demo
+TODO
 
-```
-git clone -b demo/xxx https://github.com/jsjzh/tiny-codes.git
-```
+### TODO
 
-- demo/catch-code-error
-- demo/study-post-request
+TODO
