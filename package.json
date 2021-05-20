@@ -4,5 +4,11 @@
   "main": "index.js",
   "repository": "git@github.com:jsjzh/tiny-codes.git",
   "author": "kimimi_king <kimimi_king@163.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "multiparty": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/multiparty": "0.0.32"
+  }
 }
