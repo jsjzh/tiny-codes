@@ -18,9 +18,14 @@ $upload.addEventListener("change", (e) => {
   const [file] = e.target.files;
   const formData = new FormData();
   formData.append("chunk", file);
-  ajax("http://localhost.charlesproxy.com:7001/upload", "post", formData, (rep) => {
-    console.log(rep);
-  });
+  ajax(
+    "http://localhost.charlesproxy.com:7001/upload",
+    "post",
+    formData,
+    (rep) => {
+      console.log(rep);
+    }
+  );
 
   // const files = e.target.files;
   // console.log(files);
