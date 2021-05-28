@@ -117,12 +117,14 @@ const sleep = async (timer) =>
   new Promise((resolve) => setTimeout(resolve, timer));
 
 const splitPromises = async (promises, count) => {
-  const promisesArrs = splitArray(promises, count);
+  const promisesFnArrs = splitArray(promises, count);
 
   let results = [];
-  for (let index = 0; index < promisesArrs.length; index++) {
-    const _promises = promisesArrs[index];
-    const _results = await Promise.all(_promises);
+  for (let index = 0; index < promisesFnArrs.length; index++) {
+    const _promises = promisesFnArrs[index];
+    const _results = await Promise.all(
+      _promises.map((_promises) => _promises())
+    );
     results = [...results, ..._results];
   }
 
@@ -189,10 +191,14 @@ const handleUpload = async (e) => {
       // 并且，promise 的并发数，应该是
       // 一开始 x 个执行，每当执行完一个，就会插入下一个 promise
       // 然后保证最终的并发数不大于 x 个
-      const promises = dealFile.formDatas.map(upload);
-      const results = await splitPromises(promises, 2);
-
-      console.log(results);
+      const promises = dealFile.formDatas.map(
+        (formData) => () => upload(formData)
+      );
+      // 这个传入的函数不应该是 promises
+      // 应该传入 () => Promsie<any>
+      // 也就是调用一个函数就可以发起请求的方式
+      // 这个时候就可以从 limitPromises 来做处理了
+      await splitPromises(promises, 2);
 
       console.log(
         `${dealFile.name} 文件上传完成，一共上传了 ${dealFile.chunks.length} 块 chunk`
