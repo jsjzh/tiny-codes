@@ -101,6 +101,34 @@ const fileSlice = (file, size) => {
   return chunks;
 };
 
+const splitArray = (arr = [], count = 3) => {
+  const result = [];
+
+  arr.forEach((promise, index) => {
+    const num = Math.floor(index / count);
+    !Array.isArray(result[num]) && (result[num] = []);
+    result[num].push(promise);
+  });
+
+  return result;
+};
+
+const sleep = async (timer) =>
+  new Promise((resolve) => setTimeout(resolve, timer));
+
+const splitPromises = async (promises, count) => {
+  const promisesArrs = splitArray(promises, count);
+
+  let results = [];
+  for (let index = 0; index < promisesArrs.length; index++) {
+    const _promises = promisesArrs[index];
+    const _results = await Promise.all(_promises);
+    results = [...results, ..._results];
+  }
+
+  return results;
+};
+
 const ajax = createAjax("http://localhost.charlesproxy.com:7001");
 
 const upload = (formData) => ajax.post("/upload", formData);
@@ -112,8 +140,8 @@ const $upload = document.querySelector("#upload");
 const handleUpload = async (e) => {
   const files = Array.from(e.target.files);
 
-  // const chunkSize = 50 * unitMaps.KB;
-  const chunkSize = 20 * unitMaps.MB;
+  const chunkSize = 50 * unitMaps.KB;
+  // const chunkSize = 20 * unitMaps.MB;
 
   const dealFiles = files.map((file) => ({
     name: file.name,
@@ -157,9 +185,14 @@ const handleUpload = async (e) => {
         dealFile.formDatas.push(formData);
       }
 
+      // TODO 这里有问题，不能够限制 promise 的并发数
+      // 并且，promise 的并发数，应该是
+      // 一开始 x 个执行，每当执行完一个，就会插入下一个 promise
+      // 然后保证最终的并发数不大于 x 个
       const promises = dealFile.formDatas.map(upload);
+      const results = await splitPromises(promises, 2);
 
-      await Promise.all(promises);
+      console.log(results);
 
       console.log(
         `${dealFile.name} 文件上传完成，一共上传了 ${dealFile.chunks.length} 块 chunk`

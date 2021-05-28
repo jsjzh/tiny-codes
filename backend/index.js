@@ -3,6 +3,9 @@ const multiparty = require("multiparty");
 const fs = require("fs-extra");
 const path = require("path");
 
+const fileChunksSavePath = path.join(__dirname, "../data");
+const fileChunksMergePath = path.join(__dirname, "../merge");
+
 const server = http.createServer().listen(7001, () => {
   console.log("后端服务创建成功");
 });
@@ -22,8 +25,6 @@ server.on("request", async (request, response) => {
     if (request.method === "POST") {
       var form = new multiparty.Form();
 
-      const imagesDirPath = path.join(__dirname, "../data");
-
       form.parse(request, function (err, fields, files) {
         const {
           name: [name],
@@ -41,7 +42,7 @@ server.on("request", async (request, response) => {
         const { ext } = path.parse(name);
 
         const filePath = path.join(
-          imagesDirPath,
+          fileChunksSavePath,
           `${fileMD5}-${ext}/${chunkMD5}-${count}-${chunkSize}`
         );
         if (!fs.existsSync(filePath)) fs.moveSync(chunk.path, filePath);
@@ -73,10 +74,7 @@ server.on("request", async (request, response) => {
         const { name, fileMD5 } = JSON.parse(data);
         const { ext } = path.parse(name);
 
-        const datasBasePath = path.join(__dirname, "../data");
-        const resultBasePath = path.join(__dirname, "../merge");
-
-        const dirPath = path.join(datasBasePath, `${fileMD5}-${ext}`);
+        const dirPath = path.join(fileChunksSavePath, `${fileMD5}-${ext}`);
         const fileStat = await fs.stat(dirPath);
 
         if (!fileStat.isDirectory) {
@@ -92,7 +90,10 @@ server.on("request", async (request, response) => {
 
         const files = await fs.readdir(dirPath);
 
-        const resultFilePath = path.join(resultBasePath, `${fileMD5}${ext}`);
+        const resultFilePath = path.join(
+          fileChunksMergePath,
+          `${fileMD5}${ext}`
+        );
         await fs.ensureFile(resultFilePath);
 
         const promises = files.map((file) => {
