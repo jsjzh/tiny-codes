@@ -1,12 +1,13 @@
 const http = require("http");
 const multiparty = require("multiparty");
-const fs = require("fs");
+const fs = require("fs-extra");
+const path = require("path");
 
 const server = http.createServer().listen(7001, () => {
   console.log("后端服务创建成功");
 });
 
-server.on("request", (request, response) => {
+server.on("request", async (request, response) => {
   if (request.url === "/upload") {
     response.setHeader(
       "Access-Control-Allow-Origin",
@@ -19,51 +20,104 @@ server.on("request", (request, response) => {
     }
 
     if (request.method === "POST") {
-      // const writeStream = fs.createWriteStream(
-      //   "/Users/dasouche/Desktop/PROJECT/git/tiny-codes/data/images.png",
-      //   { flags: "wx" }
-      // );
-      // request.pipe(writeStream);
-      // request.on("end", () => {
-      //   writeStream.end();
-      //   response.end("success");
-      //   // request.resume();
-      // });
       var form = new multiparty.Form();
 
+      const imagesDirPath = path.join(__dirname, "../data");
+
       form.parse(request, function (err, fields, files) {
+        const {
+          name: [name],
+          fileMD5: [fileMD5],
+
+          count: [count],
+          chunkMD5: [chunkMD5],
+          chunkSize: [chunkSize],
+        } = fields;
+
+        const {
+          chunk: [chunk],
+        } = files;
+
+        const { ext } = path.parse(name);
+
+        const filePath = path.join(
+          imagesDirPath,
+          `${fileMD5}-${ext}/${chunkMD5}-${count}-${chunkSize}`
+        );
+        if (!fs.existsSync(filePath)) fs.moveSync(chunk.path, filePath);
+
         response.writeHead(200, { "content-type": "application/json" });
         response.end(JSON.stringify({ fields: fields, files: files }));
       });
     }
   }
 
-  // if (request.url === "/upload") {
-  //   if (request.method === "OPTIONS") {
-  //     response.writeHead(200);
-  //     response.end();
-  //   } else if (request.method === "POST") {
-  //     response.end("POST");
+  if (request.url === "/merge") {
+    response.setHeader(
+      "Access-Control-Allow-Origin",
+      "http://localhost.charlesproxy.com:8080"
+    );
+    response.setHeader("Access-Control-Allow-Headers", "*");
 
-  //     // let rawData = "";
-  //     // request.on("data", (chunk) => {
-  //     //   rawData += chunk;
-  //     // });
-  //     // request.on("end", () => {
-  //     //   response.end("rawData");
-  //     // });
-  //   } else {
-  //     response.end("error");
-  //   }
-  //   // var form = new multiparty.Form();
-  //   // form.parse(request, function (err, fields, files) {
-  //   //   response.writeHead(200, { "content-type": "text/plain" });
-  //   //   response.write("received upload:\n\n");
-  //   //   response.end(JSON.stringify({ fields: fields, files: files }));
-  //   // });
-  // } else {
-  //   console.log("request", request);
-  //   console.log("response", response);
-  //   response.end("hello world");
-  // }
+    if (request.method === "OPTIONS") {
+      response.writeHead(200).end();
+    }
+
+    if (request.method === "POST") {
+      let data = "";
+      request.on("data", (body) => {
+        data += body;
+      });
+
+      request.on("end", async () => {
+        const { name, fileMD5 } = JSON.parse(data);
+        const { ext } = path.parse(name);
+
+        const datasBasePath = path.join(__dirname, "../data");
+        const resultBasePath = path.join(__dirname, "../merge");
+
+        const dirPath = path.join(datasBasePath, `${fileMD5}-${ext}`);
+        const fileStat = await fs.stat(dirPath);
+
+        if (!fileStat.isDirectory) {
+          response.writeHead(400, { "content-type": "application/json" });
+          response.end(
+            JSON.stringify({
+              success: false,
+              message: "不存在的文件",
+              data,
+            })
+          );
+        }
+
+        const files = await fs.readdir(dirPath);
+
+        const resultFilePath = path.join(resultBasePath, `${fileMD5}${ext}`);
+        await fs.ensureFile(resultFilePath);
+
+        const promises = files.map((file) => {
+          return new Promise((resolve) => {
+            const [, count, chunkSize] = file.split("-");
+            const rs = fs.createReadStream(path.join(dirPath, file));
+            const ws = fs.createWriteStream(resultFilePath, {
+              start: (count - 1) * chunkSize,
+            });
+            rs.pipe(ws);
+            ws.on("finish", resolve);
+          });
+        });
+
+        await Promise.all(promises);
+
+        response.writeHead(200, { "Content-Type": "application/json" });
+        response.end(
+          JSON.stringify({
+            success: true,
+            message: "OK",
+            data,
+          })
+        );
+      });
+    }
+  }
 });
