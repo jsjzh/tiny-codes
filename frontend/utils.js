@@ -98,6 +98,9 @@ const fileSlice = (file, size) => {
   return chunks;
 };
 
+const sleep = async (timer) =>
+  new Promise((resolve) => setTimeout(resolve, timer));
+
 const splitArray = (arr = [], count = 3) => {
   const result = [];
 
@@ -110,29 +113,17 @@ const splitArray = (arr = [], count = 3) => {
   return result;
 };
 
-const sleep = async (timer) =>
-  new Promise((resolve) => setTimeout(resolve, timer));
-
 const splitPromises = async (promises, count) => {
   const promisesFnArrs = splitArray(promises, count);
 
   let results = [];
   for (let index = 0; index < promisesFnArrs.length; index++) {
-    const _promises = promisesFnArrs[index];
+    const promiseFns = promisesFnArrs[index];
     const _results = await Promise.all(
-      _promises.map((_promises) => _promises())
+      promiseFns.map((promiseFn) => promiseFn())
     );
-    results = [...results, ..._results];
+    results = results.concat(_results);
   }
 
   return results;
-};
-
-const limitPromises = async (promises, count) => {
-  let current = 0;
-  const results = [];
-  const call = () => {
-    const promise = promises[current];
-    promise().then().finally;
-  };
 };

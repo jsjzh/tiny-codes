@@ -55,14 +55,14 @@ const handleUpload = async (e) => {
       // 并且，promise 的并发数，应该是
       // 一开始 x 个执行，每当执行完一个，就会插入下一个 promise
       // 然后保证最终的并发数不大于 x 个
-      const promises = dealFile.formDatas.map(
+      const promiseFns = dealFile.formDatas.map(
         (formData) => () => upload(formData)
       );
       // 这个传入的函数不应该是 promises
       // 应该传入 () => Promsie<any>
       // 也就是调用一个函数就可以发起请求的方式
       // 这个时候就可以从 limitPromises 来做处理了
-      await splitPromises(promises, 2);
+      await splitPromises(promiseFns, 2);
 
       /**
        * 1.
