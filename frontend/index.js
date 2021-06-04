@@ -131,11 +131,24 @@ const splitPromises = async (promises, count) => {
   return results;
 };
 
+const limitPromises = async (promises, count) => {
+  let current = 0;
+  const results = [];
+  const call = () => {
+    const promise = promises[current];
+    promise().then().finally
+  };
+};
+
+// ------------------------- utils -------------------------
+
 const ajax = createAjax("http://localhost.charlesproxy.com:7001");
 
 const upload = (formData) => ajax.post("/upload", formData);
 
 const merge = ({ name, fileMD5 }) => ajax.post("/merge", { name, fileMD5 });
+
+// ------------------------- apis -------------------------
 
 const $upload = document.querySelector("#upload");
 
@@ -199,6 +212,16 @@ const handleUpload = async (e) => {
       // 也就是调用一个函数就可以发起请求的方式
       // 这个时候就可以从 limitPromises 来做处理了
       await splitPromises(promises, 2);
+
+      /**
+       * 1.
+       * 对一种接口直接限制并发
+       * 就是说传入一个接口，然后也是返回一个接口
+       * 调用这个接口的时候会去查询这个接口是否有还未返回的请求，限制这个的并发
+       * 2.
+       * 传入一个数组，数组里面是一个个函数
+       * 然后限制这些函数的并发
+       */
 
       console.log(
         `${dealFile.name} 文件上传完成，一共上传了 ${dealFile.chunks.length} 块 chunk`
