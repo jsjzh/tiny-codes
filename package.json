@@ -5,12 +5,17 @@
   "repository": "git@github.com:jsjzh/tiny-codes.git",
   "author": "kimimi_king <kimimi_king@163.com>",
   "license": "MIT",
+  "scripts": {
+    "start:frontend": "http-server ./frontend",
+    "start:backend": "node backend/index.js"
+  },
   "dependencies": {
     "fs-extra": "^10.0.0",
     "multiparty": "^4.2.2"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.11",
-    "@types/multiparty": "0.0.32"
+    "@types/multiparty": "0.0.32",
+    "http-server": "^0.12.3"
   }
 }
