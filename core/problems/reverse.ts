@@ -9,6 +9,8 @@ const logger = new Logger(getFileName(__filename));
 // 如果反转后整数超过 32 位的有符号整数的范围 [−2^31, 2^31 − 1] ，就返回 0。
 // 假设环境不允许存储 64 位整数（有符号或无符号）。
 
+// -2^31 <= x <= 2^31 - 1
+
 const code = (x: number): number => {
   const flag = x > 0;
   !flag && (x = Math.abs(x));

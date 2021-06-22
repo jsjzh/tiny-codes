@@ -34,6 +34,7 @@ export default class Logger {
 
   timeEnd() {
     console.timeEnd(`${this.title} time`);
+    console.log();
   }
 
   private __log(type: 'log' | 'info' | 'warn' | 'error', args: any[]) {
