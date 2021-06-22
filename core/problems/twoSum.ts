@@ -26,7 +26,7 @@ const code = (nums: number[], target: number): number[] => {
 };
 
 export default () => {
-  logger.time();
+  logger.timeStart();
   logger.log(code([2, 7, 11, 15], 9));
   logger.timeEnd();
 };

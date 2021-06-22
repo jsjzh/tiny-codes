@@ -28,7 +28,7 @@ export default class Logger {
     this.__log('error', args);
   }
 
-  time() {
+  timeStart() {
     console.time(`${this.title} time`);
   }
 

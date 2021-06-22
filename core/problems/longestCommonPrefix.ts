@@ -1,3 +1,5 @@
+/* eslint-disable for-direction */
+/* eslint-disable @typescript-eslint/prefer-for-of */
 import { getFileName } from '../utils';
 import Logger from '../shared/logger';
 
@@ -11,11 +13,21 @@ const logger = new Logger(getFileName(__filename));
 // strs[i] 仅由小写英文字母组成
 
 const code = (strs: string[]): string => {
+  if (!strs.length) return '';
+  if (strs.length === 1) return strs[0];
+
+  const [baseStr, ...newStrs] = strs;
+  for (let i = baseStr.length; i > 0; i--) {
+    const coder = baseStr.slice(0, i);
+    if (newStrs.every((str) => str.startsWith(coder))) {
+      return coder;
+    }
+  }
   return '';
 };
 
 export default () => {
-  logger.time();
-  logger.log(code(['flower', 'flow', 'flight']));
+  logger.timeStart();
+  logger.log(code(['flower', 'flower', 'flower', 'flower']));
   logger.timeEnd();
 };

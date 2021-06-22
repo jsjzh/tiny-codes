@@ -20,7 +20,7 @@ const code = (x: number): number => {
 };
 
 export default () => {
-  logger.time();
+  logger.timeStart();
   logger.log(code(139847329));
   logger.timeEnd();
 };

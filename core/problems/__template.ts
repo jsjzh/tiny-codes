@@ -10,7 +10,7 @@ const code = (str: string): boolean => {
 };
 
 export default () => {
-  logger.time();
+  logger.timeStart();
   logger.log(code(''));
   logger.timeEnd();
 };

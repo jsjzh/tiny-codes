@@ -16,7 +16,7 @@ const code = (x: number): boolean => {
 };
 
 export default () => {
-  logger.time();
+  logger.timeStart();
   logger.log(code(12345654321));
   logger.timeEnd();
 };

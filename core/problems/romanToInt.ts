@@ -36,7 +36,7 @@ const code = (str: string): number => {
 };
 
 export default () => {
-  logger.time();
+  logger.timeStart();
   logger.log(code('LVIII'));
   logger.timeEnd();
 };
