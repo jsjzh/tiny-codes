@@ -1,5 +1,3 @@
-/* eslint-disable for-direction */
-/* eslint-disable @typescript-eslint/prefer-for-of */
 import { getFileName } from '../utils';
 import Logger from '../shared/logger';
 

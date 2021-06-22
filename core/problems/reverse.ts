@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-loss-of-precision */
 /* eslint-disable no-param-reassign */
 import { getFileName } from '../utils';
 import Logger from '../shared/logger';

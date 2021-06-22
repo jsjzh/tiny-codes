@@ -10,11 +10,28 @@ const logger = new Logger(getFileName(__filename));
 // 左括号必须用相同类型的右括号闭合。
 // 左括号必须以正确的顺序闭合。
 
-// 1 <= s.length <= 104
+// 1 <= s.length <= 10^4
 // s 仅由括号 '()[]{}' 组成
 
-const code = (str: string): boolean => {
-  return !!str;
+const code = (s: string): boolean => {
+  if (!s.length) return true;
+  if (s.length % 2) return false;
+
+  const map = {
+    '(': ')',
+    '{': '}',
+    '[': ']',
+
+    ')': '(',
+    '}': '{',
+    ']': '[',
+  };
+
+  for (let i = 0; i < s.length; i++) {
+    const coder = s[i];
+  }
+
+  return !!s;
 };
 
 export default () => {
