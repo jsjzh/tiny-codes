@@ -2,6 +2,10 @@
 import dayjs from 'dayjs';
 
 export default class Logger {
+  static create(title: string) {
+    return new Logger(title);
+  }
+
   title: string;
 
   constructor(title: string) {
@@ -24,10 +28,18 @@ export default class Logger {
     this.__log('error', args);
   }
 
+  time() {
+    console.time(`${this.title} time`);
+  }
+
+  timeEnd() {
+    console.timeEnd(`${this.title} time`);
+  }
+
   private __log(type: 'log' | 'info' | 'warn' | 'error', args: any[]) {
     console[type].apply(console, [
       this.title,
-      type,
+      `${type}:`,
       dayjs().format('YYYY/MM/DD HH:mm:ss'),
       ...args,
     ]);

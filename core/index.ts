@@ -1,3 +1,11 @@
-import twoSum from './problems/twoSum';
+import twoSum from '@/twoSum';
+import reverse from '@/reverse';
+import isPalindrome from '@/isPalindrome';
 
-twoSum([2, 7, 11, 15], 9);
+console.log();
+
+twoSum();
+reverse();
+isPalindrome();
+
+console.log();
