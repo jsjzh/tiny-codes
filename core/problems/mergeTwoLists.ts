@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { getFileName } from '../utils';
 import Logger from '../shared/logger';
 import ListNode from '../shared/listNode';
@@ -14,17 +15,23 @@ const logger = new Logger(getFileName(__filename));
 type IListNode = ListNode | null;
 
 const code = (l1: IListNode, l2: IListNode): IListNode => {
-  if (l1 === null) {
-    return l2;
-  } else if (l2 === null) {
-    return l1;
-  } else if (l1.val < l2.val) {
-    l1.next = code(l1.next, l2);
-    return l1;
-  } else {
-    l2.next = code(l1, l2.next);
-    return l2;
+  const newListNode = new ListNode(-1);
+  let preListNode = newListNode;
+
+  while (l1 && l2) {
+    if (l1.val <= l2.val) {
+      preListNode.next = new ListNode(l1.val);
+      l1 = l1.next;
+    } else {
+      preListNode.next = new ListNode(l2.val);
+      l2 = l2.next;
+    }
+    preListNode = preListNode.next;
   }
+
+  preListNode.next = l1 === null ? l2 : l1;
+
+  return newListNode.next;
 };
 
 // const best = (l1: IListNode, l2: IListNode): IListNode => {

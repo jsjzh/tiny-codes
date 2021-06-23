@@ -5,7 +5,11 @@
 // import longestCommonPrefix from '@/longestCommonPrefix';
 // import isValid from '@/isValid';
 // import mergeTwoLists from '@/mergeTwoLists';
-import removeDuplicates from '@/removeDuplicates';
+// import removeDuplicates from '@/removeDuplicates';
+// import removeElement from '@/removeElement';
+// import strStr from '@/strStr';
+// import searchInsert from '@/searchInsert';
+import maxSubArray from '@/maxSubArray';
 
 console.log();
 
@@ -16,6 +20,10 @@ console.log();
 // longestCommonPrefix();
 // isValid();
 // mergeTwoLists();
-removeDuplicates();
+// removeDuplicates();
+// removeElement();
+// strStr();
+// searchInsert();
+maxSubArray();
 
 console.log();
