@@ -14,7 +14,7 @@ const logger = new Logger(getFileName(__filename));
 // 输出: '10101'
 
 const code = (a: string, b: string): string => {
-  return a + b;
+  return (parseInt(a, 2) + parseInt(b, 2)).toString(2);
 };
 
 // const best = (str: string): boolean => {
@@ -23,7 +23,12 @@ const code = (a: string, b: string): string => {
 
 export default () => {
   logger.timeStart();
-  logger.log(code('', ''));
+  logger.log(
+    code(
+      '10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101',
+      '110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011',
+    ),
+  );
   logger.timeEnd();
 
   // logger.timeStart();
