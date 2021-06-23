@@ -17,25 +17,40 @@ const code = (s: string): boolean => {
   if (!s.length) return true;
   if (s.length % 2) return false;
 
-  const map = {
-    '(': ')',
-    '{': '}',
-    '[': ']',
+  const L = ['(', '{', '['];
+  const R = [')', '}', ']'];
 
-    ')': '(',
-    '}': '{',
-    ']': '[',
-  };
-
+  const arr: string[] = [];
   for (let i = 0; i < s.length; i++) {
     const coder = s[i];
+    if (R.includes(coder)) {
+      if (R.indexOf(coder) === L.indexOf(arr[arr.length - 1])) {
+        arr.pop();
+      } else {
+        return false;
+      }
+    } else if (L.includes(coder)) {
+      arr.push(coder);
+    }
   }
 
-  return !!s;
+  return !arr.length;
 };
 
 export default () => {
   logger.timeStart();
+  logger.log(code('([)]'));
+  logger.timeEnd();
+
+  logger.timeStart();
+  logger.log(code('{[]}'));
+  logger.timeEnd();
+
+  logger.timeStart();
   logger.log(code('()[]{}'));
+  logger.timeEnd();
+
+  logger.timeStart();
+  logger.log(code('{{'));
   logger.timeEnd();
 };
