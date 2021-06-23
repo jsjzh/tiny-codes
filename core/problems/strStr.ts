@@ -13,10 +13,10 @@ const logger = new Logger(getFileName(__filename));
 // 0 <= haystack.length, needle.length <= 5 * 10^4
 // haystack 和 needle 仅由小写英文字符组成
 
-// 输入：haystack = "aaaaa", needle = "bba"
+// 输入：haystack = 'aaaaa', needle = 'bba'
 // 输出：-1
 
-// 输入：haystack = "hello", needle = "ll"
+// 输入：haystack = 'hello', needle = 'll'
 // 输出：2
 
 const code = (haystack: string, needle: string): number => {

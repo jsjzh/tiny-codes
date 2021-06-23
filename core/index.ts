@@ -9,7 +9,10 @@
 // import removeElement from '@/removeElement';
 // import strStr from '@/strStr';
 // import searchInsert from '@/searchInsert';
-import maxSubArray from '@/maxSubArray';
+// import maxSubArray from '@/maxSubArray';
+// import lengthOfLastWord from '@/lengthOfLastWord';
+// import plusOne from '@/plusOne';
+import addBinary from '@/addBinary';
 
 console.log();
 
@@ -24,6 +27,9 @@ console.log();
 // removeElement();
 // strStr();
 // searchInsert();
-maxSubArray();
+// maxSubArray();
+// lengthOfLastWord();
+// plusOne();
+addBinary();
 
 console.log();

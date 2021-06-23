@@ -10,24 +10,42 @@ const logger = new Logger(getFileName(__filename));
 
 // 输入：nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 // 输出：6
-// 解释：连续子数组 [4,-1,2,1] 的和最大，为 6。
+// 解释：连续子数组 [4, -1, 2, 1] 的和最大，为 6。
 
 // 进阶：如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
 
 const code = (nums: number[]): number => {
-  return nums[0];
+  if (nums.length === 1) return nums[0];
+
+  let sum = 0;
+  let max = nums[0];
+
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i];
+
+    sum = Math.max(num + sum, num);
+    max = Math.max(max, sum);
+  }
+
+  return max;
 };
 
-// const best = (str: string): boolean => {
-//   return !!str;
-// };
+const best = (nums: number[]): number => {
+  let pre = 0;
+  let maxAns = nums[0];
+  nums.forEach((x) => {
+    pre = Math.max(pre + x, x);
+    maxAns = Math.max(maxAns, pre);
+  });
+  return maxAns;
+};
 
 export default () => {
   logger.timeStart();
-  logger.log(code([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+  logger.log(code([5, 4, -1, 7, 8]));
   logger.timeEnd();
 
-  // logger.timeStart();
-  // logger.log(best(''));
-  // logger.timeEnd();
+  logger.timeStart();
+  logger.log(best([5, 4, -1, 7, 8]));
+  logger.timeEnd();
 };
