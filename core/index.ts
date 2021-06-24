@@ -16,7 +16,10 @@
 // // TODO // import mySqrt from '@/mySqrt';
 // import climbStairs from '@/climbStairs';
 // import deleteDuplicates from '@/deleteDuplicates';
-import merge from '@/merge';
+// import merge from '@/merge';
+// no best
+// import inorderTraversal from '@/inorderTraversal';
+import isSameTree from '@/isSameTree';
 
 console.log();
 
@@ -38,6 +41,8 @@ console.log();
 // mySqrt();
 // climbStairs();
 // deleteDuplicates();
-merge();
+// merge();
+// inorderTraversal();
+isSameTree();
 
 console.log();

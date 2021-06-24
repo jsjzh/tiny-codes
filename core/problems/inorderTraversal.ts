@@ -24,13 +24,20 @@ const logger = new Logger(getFileName(__filename));
 // 输出：[1,2]
 
 const code = (root: ITreeNode): number[] => {
-  logger.log(root);
-  return [];
+  const result: number[] = [];
+
+  function curry(node: ITreeNode) {
+    node?.left && curry(node.left);
+    node?.val && result.push(node.val);
+    node?.right && curry(node.right);
+  }
+
+  curry(root);
+
+  return result;
 };
 
-// const best = (str: string): boolean => {
-//   return !!str;
-// };
+// const best = (root: ITreeNode): number[] => {};
 
 export default () => {
   const root1 = new TreeNode(1, null, new TreeNode(2, new TreeNode(3)));
@@ -40,7 +47,7 @@ export default () => {
   logger.log(code(root1));
   logger.timeEnd();
 
-  // logger.timeStart();
-  // logger.log(best(''));
-  // logger.timeEnd();
+  logger.timeStart();
+  // logger.log(best(root1));
+  logger.timeEnd();
 };
