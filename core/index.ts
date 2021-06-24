@@ -16,7 +16,7 @@
 // // TODO // import mySqrt from '@/mySqrt';
 // import climbStairs from '@/climbStairs';
 // import deleteDuplicates from '@/deleteDuplicates';
-// import merge from '@/merge';
+import merge from '@/merge';
 
 console.log();
 
@@ -38,6 +38,6 @@ console.log();
 // mySqrt();
 // climbStairs();
 // deleteDuplicates();
-// merge();
+merge();
 
 console.log();

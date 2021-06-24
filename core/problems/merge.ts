@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable max-params */
 import { getFileName } from '../utils';
 import Logger from '../shared/logger';
@@ -20,19 +21,52 @@ const logger = new Logger(getFileName(__filename));
  Do not return anything, modify nums1 in-place instead.
  */
 const code = (nums1: number[], m: number, nums2: number[], n: number): void => {
-  logger.log(nums1);
-  logger.log(m);
-  logger.log(nums2);
-  logger.log(n);
+  if (n === 0) return;
+  if (m === 0) {
+    let _n = n - 1;
+    while (_n >= 0) {
+      nums1[_n] = nums2[_n];
+      _n--;
+    }
+    return;
+  }
+
+  let _m = m - 1;
+  let _n = n - 1;
+  let target = m + n - 1;
+
+  while (_m >= 0 || _n >= 0) {
+    const n1 = _m >= 0 ? nums1[_m] : -Infinity;
+    while (_n >= 0) {
+      const n2 = nums2[_n];
+      if (n2 < n1) break;
+      nums1[target] = n2;
+      target--;
+      _n--;
+    }
+    if (_m >= 0) {
+      nums1[target] = n1;
+      target--;
+      _m--;
+    }
+  }
 };
 
 // const best = (str: string): boolean => {
 //   return !!str;
 // };
 
+// [4,0,0,0,0,0]
+// 1
+// [1,2,3,5,6]
+// 5
+
 export default () => {
   logger.timeStart();
   logger.log(code([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3));
+  // logger.log(code([0], 0, [1], 1));
+  // logger.log(code([2, 0], 1, [1], 1));
+  // logger.log(code([4, 0, 0, 0, 0, 0], 1, [1, 2, 3, 5, 6], 5));
   logger.timeEnd();
 
   // logger.timeStart();

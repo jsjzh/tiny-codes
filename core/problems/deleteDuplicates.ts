@@ -5,7 +5,7 @@ import ListNode, { IListNode } from '../shared/listNode';
 
 const logger = new Logger(getFileName(__filename));
 
-// 存在一个按升序排列的链表，给你这个链表的头节点 head，请你删除所有重复的元素，使每个元素 只出现一次。
+// 存在一个按升序排列的链表，给你这个链表的头节点 head，请你删除所有重复的元素，使每个元素只出现一次。
 // 返回同样按升序排列的结果链表。
 
 // 链表中节点数目在范围 [0, 300] 内
@@ -17,7 +17,19 @@ const logger = new Logger(getFileName(__filename));
 // 输出：[1,2,3]
 
 const code = (head: IListNode): IListNode => {
-  return head;
+  if (!head || !head.next) return head;
+
+  let _head = head;
+
+  while (head?.next) {
+    if (head.val === head.next.val) {
+      head.next = head.next.next;
+    } else {
+      head = head.next;
+    }
+  }
+
+  return _head;
 };
 
 // const best = (head: IListNode): IListNode => {};
@@ -25,7 +37,7 @@ const code = (head: IListNode): IListNode => {
 export default () => {
   const l1 = new ListNode(1);
   l1.next = new ListNode(1);
-  l1.next.next = new ListNode(2);
+  l1.next.next = new ListNode(1);
   l1.next.next.next = new ListNode(3);
   l1.next.next.next.next = new ListNode(3);
 
