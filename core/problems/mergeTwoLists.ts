@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { getFileName } from '../utils';
 import Logger from '../shared/logger';
-import ListNode from '../shared/listNode';
+import ListNode, { IListNode } from '../shared/listNode';
 
 const logger = new Logger(getFileName(__filename));
 
@@ -11,8 +11,6 @@ const logger = new Logger(getFileName(__filename));
 // 两个链表的节点数目范围是 [0, 50]
 // -100 <= Node.val <= 100
 // l1 和 l2 均按非递减顺序排列
-
-type IListNode = ListNode | null;
 
 const code = (l1: IListNode, l2: IListNode): IListNode => {
   const newListNode = new ListNode(-1);

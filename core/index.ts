@@ -12,7 +12,11 @@
 // import maxSubArray from '@/maxSubArray';
 // import lengthOfLastWord from '@/lengthOfLastWord';
 // import plusOne from '@/plusOne';
-import addBinary from '@/addBinary';
+// // TODO // import addBinary from '@/addBinary';
+// // TODO // import mySqrt from '@/mySqrt';
+// import climbStairs from '@/climbStairs';
+// import deleteDuplicates from '@/deleteDuplicates';
+// import merge from '@/merge';
 
 console.log();
 
@@ -30,6 +34,10 @@ console.log();
 // maxSubArray();
 // lengthOfLastWord();
 // plusOne();
-addBinary();
+// addBinary();
+// mySqrt();
+// climbStairs();
+// deleteDuplicates();
+// merge();
 
 console.log();
