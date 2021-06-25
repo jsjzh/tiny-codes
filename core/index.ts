@@ -21,7 +21,8 @@
 // import inorderTraversal from '@/inorderTraversal';
 // import isSameTree from '@/isSameTree';
 // import isSymmetric from '@/isSymmetric';
-import maxDepth from '@/maxDepth';
+// import maxDepth from '@/maxDepth';
+import sortedArrayToBST from '@/sortedArrayToBST';
 
 console.log();
 
@@ -47,6 +48,7 @@ console.log();
 // inorderTraversal();
 // isSameTree();
 // isSymmetric();
-maxDepth();
+// maxDepth();
+sortedArrayToBST();
 
 console.log();
