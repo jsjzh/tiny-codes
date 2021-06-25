@@ -17,9 +17,11 @@
 // import climbStairs from '@/climbStairs';
 // import deleteDuplicates from '@/deleteDuplicates';
 // import merge from '@/merge';
-// no best
+// // no best
 // import inorderTraversal from '@/inorderTraversal';
-import isSameTree from '@/isSameTree';
+// import isSameTree from '@/isSameTree';
+// import isSymmetric from '@/isSymmetric';
+import maxDepth from '@/maxDepth';
 
 console.log();
 
@@ -37,12 +39,14 @@ console.log();
 // maxSubArray();
 // lengthOfLastWord();
 // plusOne();
-// addBinary();
-// mySqrt();
+// // addBinary();
+// // mySqrt();
 // climbStairs();
 // deleteDuplicates();
 // merge();
 // inorderTraversal();
-isSameTree();
+// isSameTree();
+// isSymmetric();
+maxDepth();
 
 console.log();

@@ -11,23 +11,33 @@ const logger = new Logger(getFileName(__filename));
 // -10^4 <= Node.val <= 10^4
 
 // https://assets.leetcode.com/uploads/2020/12/20/ex3.jpg
-//      1
-//   2     1
-//      1
-//   1     2
-// 输入：p = [1,2,1], q = [1,1,2]
+//    1              1
+// 2     1        1     2
+// 输入：p = [1, 2, 1], q = [1, 1, 2]
 // 输出：false
 
 // https://assets.leetcode.com/uploads/2020/12/20/ex1.jpg
-//      1
-//   2     3
-//      1
-//   2     3
-// 输入：p = [1,2,3], q = [1,2,3]
+//    1              1
+// 2     3        2     3
+// 输入：p = [1, 2, 3], q = [1, 2, 3]
 // 输出：true
 
 const code = (p: ITreeNode, q: ITreeNode): boolean => {
-  return p === q;
+  if (p === q) return true;
+
+  if (p && q) {
+    if (p.val !== q.val) return false;
+
+    const flag = code(p.left, q.left) ? true : false;
+
+    if (flag) {
+      return code(p.right, q.right) ? true : false;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
 };
 
 // const best = (p: TreeNode | null, q: TreeNode | null): boolean => {};
@@ -41,10 +51,13 @@ export default () => {
 
   logger.timeStart();
   logger.log(code(l1, r1));
-  logger.log(code(l2, r2));
   logger.timeEnd();
 
   logger.timeStart();
-  // logger.log(best(l, r));
+  logger.log(code(l2, r2));
   logger.timeEnd();
+
+  // logger.timeStart();
+  // logger.log(best(l, r));
+  // logger.timeEnd();
 };
