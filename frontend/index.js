@@ -10,7 +10,7 @@ const handleUpload = async (e) => {
   // const chunkSize = 20 * unitMaps.MB;
 
   const dealFiles = files.map((file) => ({
-    name: file.name,
+    name: file.name || "裤裆.gif",
     lastModified: file.lastModified,
     size: file.size,
     type: file.type,
@@ -90,3 +90,20 @@ const handleUpload = async (e) => {
 };
 
 $upload.addEventListener("change", handleUpload);
+
+demo("裆");
+
+// const { code, encode, mime } = parseDataURI(
+//   "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+// );
+// let bstr = atob(code);
+// let n = bstr.length;
+// let u8arr = new Uint8Array(n);
+// while (n--) u8arr[n] = bstr.codePointAt(n);
+// const result = new Blob([u8arr], { type: mime });
+
+// handleUpload({
+//   target: {
+//     files: [result],
+//   },
+// });

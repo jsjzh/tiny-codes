@@ -11,12 +11,6 @@ const createAjax = (host) => {
     const promise = new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
 
-      xhr.open(method, `${host}${endPoint}`);
-
-      Object.keys(headers).forEach((header) =>
-        xhr.setRequestHeader(header, headers[header])
-      );
-
       const handleError = ({ currentTarget }) => {
         console.log("handleError", currentTarget);
         reject(currentTarget);
@@ -38,10 +32,22 @@ const createAjax = (host) => {
         }
       };
 
+      const handleProcess = function (event) {
+        console.log("handleProcess", event);
+        console.log(event);
+        if (event.lengthComputable) {
+          var percentComplete = (event.loaded / event.total) * 100;
+          console.log(percentComplete);
+        } else {
+          // 总大小未知时不能计算进程信息
+        }
+      };
+
       const handleLoadstart = () => {
         xhr.addEventListener("load", handleLoad);
         xhr.addEventListener("error", handleError);
         xhr.addEventListener("loadend", handleLoadend);
+        xhr.addEventListener("progress", handleProcess);
       };
 
       const handleLoadend = () => {
@@ -49,9 +55,16 @@ const createAjax = (host) => {
         xhr.removeEventListener("load", handleLoad);
         xhr.removeEventListener("error", handleError);
         xhr.removeEventListener("loadend", handleLoadend);
+        xhr.removeEventListener("progress", handleProcess);
       };
 
       xhr.addEventListener("loadstart", handleLoadstart);
+
+      xhr.open(method, `${host}${endPoint}`);
+
+      Object.keys(headers).forEach((header) =>
+        xhr.setRequestHeader(header, headers[header])
+      );
 
       headers["Content-Type"] === "application/json"
         ? xhr.send(JSON.stringify(data))
@@ -126,4 +139,16 @@ const splitPromises = async (promises, count) => {
   }
 
   return results;
+};
+
+const parseDataURI = (dataURI) => {
+  const dataURIReg = /^data(\:.*?)(\;.*?)?(\,.*)$/i;
+
+  const [, _mime, _encode, _code] = dataURIReg.exec(dataURI) || [];
+
+  return {
+    mime: _mime.slice(1) || null,
+    encode: _encode.slice(1) || null,
+    code: _code.slice(1) || null,
+  };
 };
