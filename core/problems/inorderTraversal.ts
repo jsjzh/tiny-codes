@@ -37,7 +37,7 @@ const code = (root: ITreeNode): number[] => {
   return result;
 };
 
-// const best = (root: ITreeNode): number[] => {};
+// const better = (root: ITreeNode): number[] => {};
 
 export default () => {
   const root1 = new TreeNode(1, null, new TreeNode(2, new TreeNode(3)));
@@ -48,6 +48,6 @@ export default () => {
   logger.timeEnd();
 
   logger.timeStart();
-  // logger.log(best(root1));
+  // logger.log(better(root1));
   logger.timeEnd();
 };

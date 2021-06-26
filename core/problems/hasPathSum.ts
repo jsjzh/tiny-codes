@@ -49,7 +49,7 @@ const code = (root: ITreeNode, targetSum: number): boolean => {
   );
 };
 
-// const best = (root: ITreeNode, targetSum: number): boolean => {};
+// const better = (root: ITreeNode, targetSum: number): boolean => {};
 
 export default () => {
   const l1 = new TreeNode(
@@ -60,5 +60,5 @@ export default () => {
 
   logger.time(() => logger.log(code(l1, 5)));
 
-  // logger.time(() => logger.log(best(l1, 5)));
+  // logger.time(() => logger.log(better(l1, 5)));
 };

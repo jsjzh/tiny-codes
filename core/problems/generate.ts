@@ -36,5 +36,5 @@ const code = (numRows: number): number[][] => {
 export default () => {
   logger.time(() => logger.log(code(10)));
 
-  // logger.time(() => logger.log(best(5)));
+  // logger.time(() => logger.log(better(5)));
 };

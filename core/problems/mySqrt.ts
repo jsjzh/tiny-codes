@@ -16,7 +16,7 @@ const code = (x: number): number => {
   return x;
 };
 
-// const best = (str: string): boolean => {
+// const better = (str: string): boolean => {
 //   return !!str;
 // };
 
@@ -26,6 +26,6 @@ export default () => {
   logger.timeEnd();
 
   // logger.timeStart();
-  // logger.log(best(''));
+  // logger.log(better(''));
   // logger.timeEnd();
 };

@@ -32,7 +32,7 @@ const code = (head: IListNode): IListNode => {
   return _head;
 };
 
-// const best = (head: IListNode): IListNode => {};
+// const better = (head: IListNode): IListNode => {};
 
 export default () => {
   const l1 = new ListNode(1);
@@ -46,6 +46,6 @@ export default () => {
   logger.timeEnd();
 
   // logger.timeStart();
-  // logger.log('best', JSON.stringify(best(l1, l2)));
+  // logger.log('better', JSON.stringify(better(l1, l2)));
   // logger.timeEnd();
 };

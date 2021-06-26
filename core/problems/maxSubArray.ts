@@ -30,7 +30,7 @@ const code = (nums: number[]): number => {
   return max;
 };
 
-const best = (nums: number[]): number => {
+const better = (nums: number[]): number => {
   let pre = 0;
   let maxAns = nums[0];
   nums.forEach((x) => {
@@ -46,6 +46,6 @@ export default () => {
   logger.timeEnd();
 
   logger.timeStart();
-  logger.log(best([5, 4, -1, 7, 8]));
+  logger.log(better([5, 4, -1, 7, 8]));
   logger.timeEnd();
 };

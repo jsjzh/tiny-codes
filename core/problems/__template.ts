@@ -9,12 +9,12 @@ const code = (str: string): boolean => {
   return !!str;
 };
 
-// const best = (str: string): boolean => {
+// const better = (str: string): boolean => {
 //   return !!str;
 // };
 
 export default () => {
   logger.time(() => logger.log(code('')));
 
-  // logger.time(() => logger.log(best('')));
+  // logger.time(() => logger.log(better('')));
 };

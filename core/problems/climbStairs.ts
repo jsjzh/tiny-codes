@@ -23,7 +23,7 @@ const code = (n: number): number => {
 //   return code(n - 1) + code(n - 2);
 // };
 
-const best = (n: number): number => {
+const better = (n: number): number => {
   if (n === 1) return 1;
   if (n === 2) return 2;
 
@@ -47,6 +47,6 @@ export default () => {
   logger.timeEnd();
 
   logger.timeStart();
-  logger.log(best(num));
+  logger.log(better(num));
   logger.timeEnd();
 };

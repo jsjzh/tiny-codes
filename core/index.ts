@@ -27,7 +27,8 @@
 // import minDepth from '@/minDepth';
 // import hasPathSum from '@/hasPathSum';
 // import generate from '@/generate';
-import getRow from '@/getRow';
+// import getRow from '@/getRow';
+import maxProfit from '@/maxProfit';
 
 console.log();
 
@@ -58,6 +59,7 @@ console.log();
 // isBalanced();
 // minDepth();
 // generate();
-getRow();
+// getRow();
+maxProfit();
 
 console.log();

@@ -39,10 +39,10 @@ const code = (rowIndex: number): number[] => {
   return curr;
 };
 
-// const best = (rowIndex: number): number[] => {};
+// const better = (rowIndex: number): number[] => {};
 
 export default () => {
   logger.time(() => logger.log(code(10)));
 
-  // logger.time(() => logger.log(best(3)));
+  // logger.time(() => logger.log(better(3)));
 };

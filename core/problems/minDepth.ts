@@ -64,7 +64,7 @@ const code = (root: ITreeNode): number => {
   return count + 1;
 };
 
-// const best = (root: ITreeNode): number => {};
+// const better = (root: ITreeNode): number => {};
 
 export default () => {
   const l1 = new TreeNode(
@@ -107,5 +107,5 @@ export default () => {
   logger.time(() => logger.log(code(l4)));
   logger.time(() => logger.log(code(l5)));
 
-  // logger.time(() => logger.log(best(l1)));
+  // logger.time(() => logger.log(better(l1)));
 };

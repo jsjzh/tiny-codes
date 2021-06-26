@@ -29,7 +29,7 @@ const code = (root: ITreeNode): number => {
   return Math.max(deepCount(root.left, 1), deepCount(root.right, 1));
 };
 
-const best = (root: ITreeNode): number => {
+const better = (root: ITreeNode): number => {
   if (root === null) return 0;
   if (root.left === null && root.right === null) return 1;
 
@@ -62,6 +62,6 @@ export default () => {
   logger.time(() => logger.log(code(l1)));
   logger.time(() => logger.log(code(l2)));
 
-  logger.time(() => logger.log(best(l1)));
-  logger.time(() => logger.log(best(l2)));
+  logger.time(() => logger.log(better(l1)));
+  logger.time(() => logger.log(better(l2)));
 };

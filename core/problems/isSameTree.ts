@@ -40,7 +40,7 @@ const code = (p: ITreeNode, q: ITreeNode): boolean => {
   }
 };
 
-// const best = (p: TreeNode | null, q: TreeNode | null): boolean => {};
+// const better = (p: TreeNode | null, q: TreeNode | null): boolean => {};
 
 export default () => {
   const l1 = new TreeNode(1, new TreeNode(2), new TreeNode(1));
@@ -58,6 +58,6 @@ export default () => {
   logger.timeEnd();
 
   // logger.timeStart();
-  // logger.log(best(l, r));
+  // logger.log(better(l, r));
   // logger.timeEnd();
 };

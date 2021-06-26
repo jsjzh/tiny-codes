@@ -30,7 +30,7 @@ const code = (nums: number[]): number => {
   return nums.length;
 };
 
-const best = (nums: number[]): number => {
+const better = (nums: number[]): number => {
   const n = nums.length;
   if (n === 0) {
     return 0;
@@ -57,6 +57,6 @@ export default () => {
   logger.timeEnd();
 
   logger.timeStart();
-  logger.log('best', best([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
+  logger.log('better', better([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
   logger.timeEnd();
 };
