@@ -29,7 +29,15 @@ const logger = new Logger(getFileName(__filename));
 // 输出：true
 
 const code = (root: ITreeNode): boolean => {
-  return !!root;
+  function deepCount(node: ITreeNode, count: number): number {
+    if (!node) return count;
+    return Math.max(
+      deepCount(node.left, count + 1),
+      deepCount(node.right, count + 1),
+    );
+  }
+
+  return Math.abs(deepCount(root!.left, 1) - deepCount(root!.right, 1)) <= 1;
 };
 
 // const best = (root: ITreeNode): boolean => {};
