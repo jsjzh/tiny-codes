@@ -43,18 +43,26 @@ const logger = new Logger(getFileName(__filename));
 const code = (nums: number[]): ITreeNode => {
   const len = nums.length;
 
+  if (len === 0) return null;
   if (len === 1) return new TreeNode(nums[0]);
-  if (!len) return null;
 
   const isOdd = !!(len % 2);
+  let center: number;
+  let root: number;
+  let l: number[];
+  let r: number[];
 
-  const center = isOdd ? (len + 1) / 2 : len / 2 - 1;
-  let root = isOdd ? nums[center - 1] : nums[center];
-  let l = nums.slice(0, center);
-  let r = nums.slice(center + 1);
-
-  console.log('l', l);
-  console.log('r', r);
+  if (isOdd) {
+    center = (len + 1) / 2;
+    root = nums[center - 1];
+    l = nums.slice(0, center - 1);
+    r = nums.slice(center);
+  } else {
+    center = len / 2 - 1;
+    root = nums[center];
+    l = nums.slice(0, center);
+    r = nums.slice(center + 1);
+  }
 
   return new TreeNode(root, code(l), code(r));
 };
@@ -62,12 +70,15 @@ const code = (nums: number[]): ITreeNode => {
 // const best = (nums: number[]): ITreeNode => {};
 
 export default () => {
-  logger.timeStart();
-  code([-10, -3, 0, 5, 9]);
-  // logger.log(code([-10, -3, 0, 5, 9]));
-  logger.timeEnd();
+  logger.time(() => {
+    logger.log(code([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+  });
 
-  // logger.timeStart();
-  // logger.log(best(l, r));
-  // logger.timeEnd();
+  logger.time(() => {
+    logger.log(code([-10, -3, 0, 5, 9]));
+  });
+
+  // logger.time(() => {
+  //   logger.log(best([-10, -3, 0, 5, 9]));
+  // });
 };

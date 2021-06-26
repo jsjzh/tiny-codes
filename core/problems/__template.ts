@@ -14,11 +14,11 @@ const code = (str: string): boolean => {
 // };
 
 export default () => {
-  logger.timeStart();
-  logger.log(code(''));
-  logger.timeEnd();
+  logger.time(() => {
+    logger.log(code(''));
+  });
 
-  // logger.timeStart();
-  // logger.log(best(''));
-  // logger.timeEnd();
+  // logger.time(() => {
+  //   logger.log(best(''));
+  // });
 };

@@ -7,9 +7,11 @@ export default class Logger {
   }
 
   title: string;
+  count: number;
 
   constructor(title: string) {
     this.title = title;
+    this.count = 0;
   }
 
   log(...args: any[]) {
@@ -28,6 +30,14 @@ export default class Logger {
     this.__log('error', args);
   }
 
+  time(fn: (...args: any[]) => any) {
+    const title = `${this.title} time ${this.count}`;
+    this.count++;
+    console.time(title);
+    fn();
+    return this.__timeEnd(title);
+  }
+
   timeStart() {
     console.time(`${this.title} time`);
   }
@@ -35,6 +45,10 @@ export default class Logger {
   timeEnd() {
     console.timeEnd(`${this.title} time`);
     console.log();
+  }
+
+  protected __timeEnd(title: string) {
+    console.timeEnd(title);
   }
 
   private __log(type: 'log' | 'info' | 'warn' | 'error', args: any[]) {

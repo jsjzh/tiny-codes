@@ -22,7 +22,8 @@
 // import isSameTree from '@/isSameTree';
 // import isSymmetric from '@/isSymmetric';
 // import maxDepth from '@/maxDepth';
-import sortedArrayToBST from '@/sortedArrayToBST';
+// import sortedArrayToBST from '@/sortedArrayToBST';
+import isBalanced from '@/isBalanced';
 
 console.log();
 
@@ -49,6 +50,7 @@ console.log();
 // isSameTree();
 // isSymmetric();
 // maxDepth();
-sortedArrayToBST();
+// sortedArrayToBST();
+isBalanced();
 
 console.log();
