@@ -29,10 +29,24 @@ const logger = new Logger(getFileName(__filename));
 // 2   n
 // 输出：false
 
+// 输入：root = [-2,null,-3], targetSum = -5
+//   -2
+// n    -3
+// 输出：true
+
+// 输入：root = [1,2], targetSum = 1
+//   1
+// 2   n
+// 输出：false
+
 const code = (root: ITreeNode, targetSum: number): boolean => {
-  logger.log(root);
-  logger.log(targetSum);
-  return true;
+  if (!root) return false;
+  if (targetSum === root.val && !root.left && !root.right) return true;
+
+  return (
+    code(root.left, targetSum - root.val) ||
+    code(root.right, targetSum - root.val)
+  );
 };
 
 // const best = (root: ITreeNode, targetSum: number): boolean => {};

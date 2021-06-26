@@ -25,7 +25,9 @@
 // import sortedArrayToBST from '@/sortedArrayToBST';
 // import isBalanced from '@/isBalanced';
 // import minDepth from '@/minDepth';
-import hasPathSum from '@/hasPathSum';
+// import hasPathSum from '@/hasPathSum';
+// import generate from '@/generate';
+import getRow from '@/getRow';
 
 console.log();
 
@@ -55,6 +57,7 @@ console.log();
 // sortedArrayToBST();
 // isBalanced();
 // minDepth();
-hasPathSum();
+// generate();
+getRow();
 
 console.log();
