@@ -26,6 +26,8 @@ const code = (prices: number[]): number => {
 
   for (let i = 0; i < prices.length; i++) {
     for (let t = i + 1; t < prices.length; t++) {
+      if (prices[t] === 0) break;
+      if (prices[i] > prices[t]) break;
       profit = Math.max(prices[t] - prices[i], profit);
     }
   }
@@ -33,10 +35,28 @@ const code = (prices: number[]): number => {
   return profit;
 };
 
-// const better = (prices: number[]): number => {};
+const better = (prices: number[]): number => {
+  if (prices.length === 1) return 0;
+
+  let min = Infinity;
+  let profit = 0;
+
+  for (let i = 0; i < prices.length; i++) {
+    if (prices[i] < min) {
+      min = prices[i];
+      // 这里是一个很讨巧的做法，用了 else if
+      // 先是记录了最小值，也表示了在这一天买入
+      // 用 else if 来保证不会当天又卖出
+    } else if (prices[i] - min > profit) {
+      profit = prices[i] - min;
+    }
+  }
+
+  return profit;
+};
 
 export default () => {
   logger.time(() => logger.log(code([7, 1, 5, 3, 6, 4])));
 
-  // logger.time(() => logger.log(better('')));
+  logger.time(() => logger.log(better([7, 1, 5, 3, 6, 4])));
 };

@@ -28,7 +28,8 @@
 // import hasPathSum from '@/hasPathSum';
 // import generate from '@/generate';
 // import getRow from '@/getRow';
-import maxProfit from '@/maxProfit';
+// import maxProfit from '@/maxProfit';
+import maxProfit2 from '@/maxProfit2';
 
 console.log();
 
@@ -60,6 +61,7 @@ console.log();
 // minDepth();
 // generate();
 // getRow();
-maxProfit();
+// maxProfit();
+maxProfit2();
 
 console.log();
