@@ -23,7 +23,9 @@
 // import isSymmetric from '@/isSymmetric';
 // import maxDepth from '@/maxDepth';
 // import sortedArrayToBST from '@/sortedArrayToBST';
-import isBalanced from '@/isBalanced';
+// import isBalanced from '@/isBalanced';
+// import minDepth from '@/minDepth';
+import hasPathSum from '@/hasPathSum';
 
 console.log();
 
@@ -51,6 +53,8 @@ console.log();
 // isSymmetric();
 // maxDepth();
 // sortedArrayToBST();
-isBalanced();
+// isBalanced();
+// minDepth();
+hasPathSum();
 
 console.log();

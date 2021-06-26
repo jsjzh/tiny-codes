@@ -8,7 +8,7 @@
   "license": "ISC",
   "main": "lib/index.js",
   "scripts": {
-    "start": "clear && npx ts-node -r tsconfig-paths/register ./core/index.ts --files"
+    "start": "npx ts-node -r tsconfig-paths/register ./core/index.ts --files"
   },
   "dependencies": {
     "dayjs": "^1.10.5",

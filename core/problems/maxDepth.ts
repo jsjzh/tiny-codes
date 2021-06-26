@@ -15,7 +15,8 @@ const logger = new Logger(getFileName(__filename));
 // n   n 1   7
 
 const code = (root: ITreeNode): number => {
-  if (!root) return 0;
+  if (root === null) return 0;
+  if (root.left === null && root.right === null) return 1;
 
   function deepCount(node: ITreeNode, count: number): number {
     if (!node) return count;
@@ -28,7 +29,22 @@ const code = (root: ITreeNode): number => {
   return Math.max(deepCount(root.left, 1), deepCount(root.right, 1));
 };
 
-// const best = (root: ITreeNode): boolean => {};
+const best = (root: ITreeNode): number => {
+  if (root === null) return 0;
+  if (root.left === null && root.right === null) return 1;
+
+  let count = -Infinity;
+
+  if (root.left) {
+    count = Math.max(code(root.left), count);
+  }
+
+  if (root.right) {
+    count = Math.max(code(root.right), count);
+  }
+
+  return count + 1;
+};
 
 export default () => {
   const l1 = new TreeNode(
@@ -43,15 +59,9 @@ export default () => {
     new TreeNode(2, new TreeNode(1), new TreeNode(7)),
   );
 
-  logger.timeStart();
-  logger.log(code(l1));
-  logger.timeEnd();
+  logger.time(() => logger.log(code(l1)));
+  logger.time(() => logger.log(code(l2)));
 
-  logger.timeStart();
-  logger.log(code(l2));
-  logger.timeEnd();
-
-  // logger.timeStart();
-  // logger.log(best(l, r));
-  // logger.timeEnd();
+  logger.time(() => logger.log(best(l1)));
+  logger.time(() => logger.log(best(l2)));
 };

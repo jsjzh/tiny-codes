@@ -19,5 +19,6 @@ module.exports = {
     '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/prefer-for-of': 'off',
     'for-direction': 'off',
+    'no-debugger': 'off',
   },
 };
