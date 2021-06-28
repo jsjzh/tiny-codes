@@ -53,11 +53,7 @@ export default () => {
   // const l3 = new ListNode(2);
   // const l4 = new ListNode(1);
 
-  logger.timeStart();
-  logger.log(JSON.stringify(code(l1, l2)));
-  logger.timeEnd();
+  logger.time(() => logger.log(JSON.stringify(code(l1, l2))));
 
-  // logger.timeStart();
-  // logger.log('better', JSON.stringify(better(l1, l2)));
-  // logger.timeEnd();
+  // logger.time(() => logger.log('better', JSON.stringify(better(l1, l2))));
 };

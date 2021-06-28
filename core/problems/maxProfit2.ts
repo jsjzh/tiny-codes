@@ -28,6 +28,22 @@ const code = (prices: number[]): number => {
   if (prices.length === 1) return 0;
 
   let profit = 0;
+  let min = Infinity;
+
+  for (let i = 0; i < prices.length; i++) {
+    if (prices[i] < min) {
+      min = prices[i];
+    } else if (prices[i + 1]) {
+      if (prices[i + 1] < prices[i]) {
+        profit += prices[i] - min;
+        min = Infinity;
+      }
+    } else {
+      profit += prices[i] - min;
+    }
+  }
+
+  return profit;
 };
 
 // const better = (prices: number[]): number => {};
@@ -36,6 +52,7 @@ export default () => {
   logger.time(() => logger.log(code([7, 1, 5, 3, 6, 4])));
   logger.time(() => logger.log(code([1, 2, 3, 4, 5])));
   logger.time(() => logger.log(code([7, 6, 4, 3, 1])));
-
+  logger.time(() => logger.log(code([6, 1, 3, 2, 4, 7])));
+  logger.time(() => logger.log(code([3, 2, 6, 5, 0, 3])));
   // logger.time(() => logger.log(better([7, 1, 5, 3, 6, 4])));
 };

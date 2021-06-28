@@ -29,7 +29,16 @@
 // import generate from '@/generate';
 // import getRow from '@/getRow';
 // import maxProfit from '@/maxProfit';
-import maxProfit2 from '@/maxProfit2';
+// import maxProfit2 from '@/maxProfit2';
+// import isPalindrome2 from '@/isPalindrome2';
+// import singleNumber from '@/singleNumber';
+// import hasCycle from '@/hasCycle';
+// import preorderTraversal from '@/preorderTraversal';
+// import postorderTraversal from '@/postorderTraversal';
+// import minStack from '@/minStack';
+// import getIntersectionNode from '@/getIntersectionNode';
+// import twoSum2 from '@/twoSum2';
+import convertToTitle from '@/convertToTitle';
 
 console.log();
 
@@ -62,6 +71,15 @@ console.log();
 // generate();
 // getRow();
 // maxProfit();
-maxProfit2();
+// maxProfit2();
+// isPalindrome2();
+// singleNumber();
+// hasCycle();
+// preorderTraversal();
+// postorderTraversal();
+// minStack();
+// getIntersectionNode();
+// twoSum2();
+convertToTitle();
 
 console.log();
