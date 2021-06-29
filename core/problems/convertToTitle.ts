@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { getFileName } from '../utils';
 import Logger from '../shared/logger';
 
@@ -20,7 +21,15 @@ const logger = new Logger(getFileName(__filename));
 // 输入: 701
 // 输出: "ZY"
 
-const code = (columnNumber: number): string => {};
+const code = (columnNumber: number): string => {
+  let str = '';
+  while (columnNumber) {
+    const n = columnNumber % 26 || 26;
+    str = String.fromCharCode(n + 64) + str;
+    columnNumber = Math.floor((columnNumber - n) / 26);
+  }
+  return str;
+};
 
 // const better = (columnNumber: number): string => {};
 

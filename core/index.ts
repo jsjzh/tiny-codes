@@ -38,7 +38,8 @@
 // import minStack from '@/minStack';
 // import getIntersectionNode from '@/getIntersectionNode';
 // import twoSum2 from '@/twoSum2';
-import convertToTitle from '@/convertToTitle';
+// import convertToTitle from '@/convertToTitle';
+import majorityElement from '@/majorityElement';
 
 console.log();
 
@@ -80,6 +81,7 @@ console.log();
 // minStack();
 // getIntersectionNode();
 // twoSum2();
-convertToTitle();
+// convertToTitle();
+majorityElement();
 
 console.log();
