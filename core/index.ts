@@ -39,7 +39,14 @@
 // import getIntersectionNode from '@/getIntersectionNode';
 // import twoSum2 from '@/twoSum2';
 // import convertToTitle from '@/convertToTitle';
-import majorityElement from '@/majorityElement';
+// import majorityElement from '@/majorityElement';
+// import titleToNumber from '@/titleToNumber';
+// import trailingZeroes from '@/trailingZeroes';
+// import isHappy from '@/isHappy';
+// import removeElements from '@/removeElements';
+// // TODO // import countPrimes from '@/countPrimes';
+// import isIsomorphic from '@/isIsomorphic';
+import reverseList from '@/reverseList';
 
 console.log();
 
@@ -82,6 +89,13 @@ console.log();
 // getIntersectionNode();
 // twoSum2();
 // convertToTitle();
-majorityElement();
+// majorityElement();
+// titleToNumber();
+// trailingZeroes();
+// isHappy();
+// removeElements();
+// // countPrimes();
+// isIsomorphic();
+reverseList();
 
 console.log();

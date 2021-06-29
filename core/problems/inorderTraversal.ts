@@ -43,11 +43,7 @@ export default () => {
   const root1 = new TreeNode(1, null, new TreeNode(2, new TreeNode(3)));
   // const root2 = new TreeNode(1, null, new TreeNode(2));
 
-  logger.timeStart();
-  logger.log(code(root1));
-  logger.timeEnd();
+  logger.time(() => logger.log(code(root1)));
 
-  logger.timeStart();
-  // logger.log(better(root1));
-  logger.timeEnd();
+  // logger.time(() => logger.log(better(root1)));
 };

@@ -18,8 +18,33 @@ const code = (x: number): number => {
   return flag ? n : -n;
 };
 
+const better = (x: number): number => {
+  if (
+    [-9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9].includes(
+      x,
+    )
+  )
+    return x;
+
+  const flag = x < 0;
+
+  let t = flag ? -x : x;
+
+  let count = 0;
+
+  while (t !== 0) {
+    let i = t % 10;
+    t = (t - i) / 10;
+    count = count * 10 + i;
+  }
+
+  if (count > Math.pow(2, 31)) return 0;
+
+  return flag ? -count : count;
+};
+
 export default () => {
-  logger.timeStart();
-  logger.log(code(139847329));
-  logger.timeEnd();
+  logger.time(() => logger.log(code(139847329)));
+
+  logger.time(() => logger.log(better(139847329)));
 };
