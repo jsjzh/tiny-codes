@@ -46,7 +46,14 @@
 // import removeElements from '@/removeElements';
 // // TODO // import countPrimes from '@/countPrimes';
 // import isIsomorphic from '@/isIsomorphic';
-import reverseList from '@/reverseList';
+// import reverseList from '@/reverseList';
+// import containsDuplicate from '@/containsDuplicate';
+// import containsNearbyDuplicate from '@/containsNearbyDuplicate';
+// import myStack from '@/myStack';
+// import invertTree from '@/invertTree';
+// import summaryRanges from '@/summaryRanges';
+// import isPowerOfTwo from '@/isPowerOfTwo';
+import myQueue from '@/myQueue';
 
 console.log();
 
@@ -96,6 +103,13 @@ console.log();
 // removeElements();
 // // countPrimes();
 // isIsomorphic();
-reverseList();
+// reverseList();
+// containsDuplicate();
+// containsNearbyDuplicate();
+// myStack();
+// invertTree();
+// summaryRanges();
+// isPowerOfTwo();
+myQueue();
 
 console.log();
