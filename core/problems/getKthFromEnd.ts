@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { getFileName } from '../utils';
 import Logger from '../shared/logger';
 import ListNode, { IListNode } from '../shared/listNode';
@@ -12,7 +13,20 @@ const logger = new Logger(getFileName(__filename));
 // 输出：4->5.
 
 const code = (head: IListNode, k: number): IListNode => {
-  return head;
+  let currentNode: IListNode = head;
+
+  while (currentNode) {
+    let tempNode: IListNode = currentNode;
+    let t = k;
+    while (t) {
+      tempNode = tempNode.next as ListNode;
+      t--;
+    }
+    if (tempNode === null) return currentNode;
+    else currentNode = currentNode.next;
+  }
+
+  return currentNode;
 };
 
 // const better = (head: IListNode, k: number): IListNode => {};
