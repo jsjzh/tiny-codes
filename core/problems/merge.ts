@@ -52,14 +52,7 @@ const code = (nums1: number[], m: number, nums2: number[], n: number): void => {
   }
 };
 
-// const better = (str: string): boolean => {
-//   return !!str;
-// };
-
-// [4,0,0,0,0,0]
-// 1
-// [1,2,3,5,6]
-// 5
+// const better = (nums1: number[], m: number, nums2: number[], n: number): void => {}
 
 export default () => {
   logger.timeStart();

@@ -53,7 +53,12 @@
 // import invertTree from '@/invertTree';
 // import summaryRanges from '@/summaryRanges';
 // import isPowerOfTwo from '@/isPowerOfTwo';
-import myQueue from '@/myQueue';
+// import myQueue from '@/myQueue';
+// import isPalindrome3 from '@/isPalindrome3';
+// import moveZeroes from '@/moveZeroes';
+// import findRepeatNumber from '@/findRepeatNumber';
+// import merge2 from '@/merge2';
+import getKthFromEnd from '@/getKthFromEnd';
 
 console.log();
 
@@ -110,6 +115,11 @@ console.log();
 // invertTree();
 // summaryRanges();
 // isPowerOfTwo();
-myQueue();
+// myQueue();
+// isPalindrome3();
+// moveZeroes();
+// findRepeatNumber();
+// merge2();
+getKthFromEnd();
 
 console.log();
