@@ -29,7 +29,26 @@ const code = (head: IListNode, k: number): IListNode => {
   return currentNode;
 };
 
-// const better = (head: IListNode, k: number): IListNode => {};
+const better = (head: IListNode, k: number): IListNode => {
+  if (!head) return null;
+
+  let front: IListNode = head;
+  let back: ListNode = head;
+
+  while (k) {
+    if (!front) return back;
+    front = front.next;
+    k--;
+  }
+
+  while (back) {
+    if (!front) return back;
+    back = back.next as ListNode;
+    front = front.next;
+  }
+
+  return null;
+};
 
 export default () => {
   const list = new ListNode(
@@ -39,5 +58,5 @@ export default () => {
 
   logger.time(() => logger.log(code(list, 2)));
 
-  // logger.time(() => logger.log(better(list, 2)));
+  logger.time(() => logger.log(better(list, 2)));
 };

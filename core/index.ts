@@ -58,7 +58,11 @@
 // import moveZeroes from '@/moveZeroes';
 // import findRepeatNumber from '@/findRepeatNumber';
 // import merge2 from '@/merge2';
-import getKthFromEnd from '@/getKthFromEnd';
+// import getKthFromEnd from '@/getKthFromEnd';
+// import reversePrint from '@/reversePrint';
+// import findContinuousSequence from '@/findContinuousSequence';
+// import replaceSpace from '@/replaceSpace';
+import getLeastNumbers from '@/getLeastNumbers';
 
 console.log();
 
@@ -120,6 +124,10 @@ console.log();
 // moveZeroes();
 // findRepeatNumber();
 // merge2();
-getKthFromEnd();
+// getKthFromEnd();
+// reversePrint();
+// findContinuousSequence();
+// replaceSpace();
+getLeastNumbers();
 
 console.log();
