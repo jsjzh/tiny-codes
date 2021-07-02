@@ -22,6 +22,7 @@ const code = (arr: number[], k: number): number[] => {
   return arr.sort((a, b) => a - b).slice(0, k);
 };
 
+// 快排，待看
 // https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/solution/jian-zhi-offer-40-zui-xiao-de-k-ge-shu-j-9yze/
 
 // const better = (arr: number[], k: number): number[] => {};
