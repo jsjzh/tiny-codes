@@ -4,6 +4,8 @@ import Logger from '../shared/logger';
 const logger = new Logger(getFileName(__filename));
 
 // 常用的数组排序方法
+// https://juejin.cn/post/6844903444365443080
+// https://juejin.cn/post/6844903470009417742
 
 // 冒泡排序
 // https://user-gold-cdn.xitu.io/2018/8/14/16538fc898b4742e?imageslim
@@ -126,6 +128,7 @@ export default () => {
 
   logger.time(() => arr.slice().sort((a, b) => a - b), 'arrSort');
   logger.time(() => bubleSort(arr.slice()), 'bubleSort');
+  logger.time(() => bubbleSort2(arr.slice()), 'bubbleSort2');
   logger.time(() => selectSort(arr.slice()), 'selectSort');
   logger.time(() => insertSort(arr.slice()), 'insertSort');
   logger.time(() => mergeSort(arr.slice()), 'mergeSort');
