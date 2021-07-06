@@ -128,7 +128,6 @@ export default () => {
 
   logger.time(() => arr.slice().sort((a, b) => a - b), 'arrSort');
   logger.time(() => bubleSort(arr.slice()), 'bubleSort');
-  logger.time(() => bubbleSort2(arr.slice()), 'bubbleSort2');
   logger.time(() => selectSort(arr.slice()), 'selectSort');
   logger.time(() => insertSort(arr.slice()), 'insertSort');
   logger.time(() => mergeSort(arr.slice()), 'mergeSort');
