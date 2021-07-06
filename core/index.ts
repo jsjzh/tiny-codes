@@ -1,3 +1,5 @@
+import sort from '@/sort';
+
 // import twoSum from '@/twoSum';
 // import reverse from '@/reverse';
 // import isPalindrome from '@/isPalindrome';
@@ -62,10 +64,11 @@
 // import reversePrint from '@/reversePrint';
 // import findContinuousSequence from '@/findContinuousSequence';
 // import replaceSpace from '@/replaceSpace';
-import getLeastNumbers from '@/getLeastNumbers';
+// import getLeastNumbers from '@/getLeastNumbers';
 
 console.log();
 
+sort();
 // twoSum();
 // reverse();
 // isPalindrome();
@@ -128,6 +131,6 @@ console.log();
 // reversePrint();
 // findContinuousSequence();
 // replaceSpace();
-getLeastNumbers();
+// getLeastNumbers();
 
 console.log();

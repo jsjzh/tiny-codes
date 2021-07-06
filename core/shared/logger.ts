@@ -30,8 +30,8 @@ export default class Logger {
     this.__log('error', args);
   }
 
-  time(fn: (...args: any[]) => any) {
-    const title = `${this.title} time ${this.count}`;
+  time(fn: (...args: any[]) => any, mark?: string) {
+    const title = `${this.title} time ${mark ? mark : this.count}`;
     this.count++;
     console.time(title);
     fn();
