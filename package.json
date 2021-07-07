@@ -9,6 +9,7 @@
   "main": "lib/index.js",
   "scripts": {
     "start": "npx ts-node -r tsconfig-paths/register ./core/index.ts --files",
+    "test": "promises-aplus-tests ./test/index.js",
     "push": "npm run git:publish",
     "git:publish": "git add . && git commit -m 'feat: 新增代码' && git push origin demo/promise"
   },
@@ -23,6 +24,7 @@
     "@typescript-eslint/parser": "^4.28.0",
     "eslint": "^7.29.0",
     "eslint-config-alloy": "^4.1.0",
+    "promises-aplus-tests": "^2.1.2",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.3.4"
   }
