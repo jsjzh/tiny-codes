@@ -1,5 +1,4 @@
 import sort from '@/sort';
-
 // import twoSum from '@/twoSum';
 // import reverse from '@/reverse';
 // import isPalindrome from '@/isPalindrome';
