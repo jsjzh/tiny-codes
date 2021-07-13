@@ -1,22 +1,53 @@
-/* eslint-disable prefer-promise-reject-errors */
-
 import SelfPromise from '@/shared/selfPromise';
-// import MyPromise from '@/shared/myPromise';
 
-const promise = new Promise((resolve, reject) => {
-  Math.random() >= 0.5 ? resolve('success') : reject('err');
+const promise = new SelfPromise((resolve, reject) => {
+  resolve('success');
 });
 
-promise.then(
-  (value) => {
-    console.log('resolve', value);
-  },
-  (reason) => {
-    console.log('reject', reason);
-  },
-);
+function other() {
+  return new SelfPromise((resolve, reject) => {
+    resolve('other');
+  });
+}
 
-// 输出 resolve success
+promise
+  .then((value: any) => {
+    console.log(value);
+    return other();
+  })
+  .then((value: any) => {
+    console.log(value);
+  });
+
+// promise
+//   .then(
+//     (value: any) => {
+//       console.log('resolve', value);
+//       return 'hello';
+//     },
+//     (reason: any) => {
+//       console.log('reject', reason);
+//       return 'world';
+//     },
+//   )
+//   .then(
+//     (value: any) => {
+//       console.log('resolve', value);
+//     },
+//     (reason: any) => {
+//       console.log('reject', reason);
+//     },
+//   )
+//   .then(
+//     (value: any) => {
+//       console.log('resolve', value);
+//     },
+//     (reason: any) => {
+//       console.log('reject', reason);
+//     },
+//   );
+
+// // 输出 resolve success
 
 // MyPromise.resolve()
 //   .then(() => {

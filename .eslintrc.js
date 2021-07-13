@@ -20,5 +20,6 @@ module.exports = {
     '@typescript-eslint/prefer-for-of': 'off',
     'for-direction': 'off',
     'no-debugger': 'off',
+    'prefer-promise-reject-errors': 'off',
   },
 };
