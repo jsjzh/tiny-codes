@@ -3,6 +3,23 @@ const FULFILLED = 'fulfilled';
 const REJECTED = 'rejected';
 
 export default class SelfPromise {
+  static deferred() {
+    let result: {
+      promise: SelfPromise;
+      resolve: any;
+      reject: any;
+    } = {
+      promise: new SelfPromise((resolve, reject) => {
+        result.resolve = resolve;
+        result.reject = reject;
+      }),
+      resolve: null,
+      reject: null,
+    };
+
+    return result;
+  }
+
   private __status: 'pending' | 'fulfilled' | 'rejected' = PENDING;
   private __value = null;
   private __reason = null;
@@ -15,7 +32,7 @@ export default class SelfPromise {
       reject?: (reason: any) => void,
     ) => void,
   ) {
-    executor(this.__resolve.bind(this), this.__reject.bind(this));
+    executor(this.resolve.bind(this), this.reject.bind(this));
   }
 
   then(onFulfilled: any, onRejected?: any) {
@@ -32,7 +49,7 @@ export default class SelfPromise {
     return this;
   }
 
-  private __resolve(value: any) {
+  resolve(value: any) {
     if (this.__status === PENDING) {
       this.__status = FULFILLED;
       this.__value = value;
@@ -45,7 +62,7 @@ export default class SelfPromise {
     }
   }
 
-  private __reject(reason: any) {
+  reject(reason: any) {
     if (this.__status === PENDING) {
       this.__status = REJECTED;
       this.__reason = reason;
@@ -57,4 +74,48 @@ export default class SelfPromise {
       }
     }
   }
+}
+
+export function promiseAll<T1>(promises: [T1 | Promise<T1>]): Promise<[T1]>;
+export function promiseAll<T1, T2>(
+  promises: [T1 | Promise<T1>, T2 | Promise<T2>],
+): Promise<[T1, T2]>;
+export function promiseAll<T1, T2, T3>(
+  promises: [T1 | Promise<T1>, T2 | Promise<T2>, T3 | Promise<T3>],
+): Promise<[T1, T2, T3]>;
+
+export function promiseAll<T1, T2, T3, T4>(
+  promises: [
+    T1 | Promise<T1>,
+    T2 | Promise<T2>,
+    T3 | Promise<T3>,
+    T4 | Promise<T4>,
+  ],
+): Promise<[T1, T2, T3, T4]>;
+
+export function promiseAll<T1, T2, T3, T4, T5>(
+  promises: [
+    T1 | Promise<T1>,
+    T2 | Promise<T2>,
+    T3 | Promise<T3>,
+    T4 | Promise<T4>,
+    T5 | Promise<T5>,
+  ],
+): Promise<[T1, T2, T3, T4, T5]>;
+
+export function promiseAll<T>(promises: T[]) {
+  return new Promise((resolve, reject) => {
+    const arr: T[] = [];
+    let count = 0;
+    for (let i = 0; i < promises.length; i++) {
+      const promise = promises[i];
+      Promise.resolve(promise)
+        .then((result) => {
+          arr[i] = result;
+          count++;
+          if (count === promises.length) resolve(arr);
+        })
+        .catch((e) => reject(e));
+    }
+  });
 }

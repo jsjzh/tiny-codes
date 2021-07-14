@@ -1,53 +1,32 @@
 import SelfPromise from '@/shared/selfPromise';
 
-const promise = new SelfPromise((resolve, reject) => {
-  resolve('success');
-});
+// 1
+// 2
+// 3
+// 4
+// 5
 
-function other() {
-  return new SelfPromise((resolve, reject) => {
-    resolve('other');
-  });
-}
-
-promise
-  .then((value: any) => {
-    console.log(value);
-    return other();
+new SelfPromise((resolve, reject) => {
+  console.log(1);
+  resolve(3);
+})
+  .then((val: any) => {
+    console.log(val);
+    return new SelfPromise((resolve, reject) => {
+      resolve(4);
+    });
   })
-  .then((value: any) => {
-    console.log(value);
+  .then((val: any) => {
+    console.log(val);
+    return new SelfPromise((resolve, reject) => {
+      resolve(5);
+    });
+  })
+  .then((val: any) => {
+    console.log(val);
   });
 
-// promise
-//   .then(
-//     (value: any) => {
-//       console.log('resolve', value);
-//       return 'hello';
-//     },
-//     (reason: any) => {
-//       console.log('reject', reason);
-//       return 'world';
-//     },
-//   )
-//   .then(
-//     (value: any) => {
-//       console.log('resolve', value);
-//     },
-//     (reason: any) => {
-//       console.log('reject', reason);
-//     },
-//   )
-//   .then(
-//     (value: any) => {
-//       console.log('resolve', value);
-//     },
-//     (reason: any) => {
-//       console.log('reject', reason);
-//     },
-//   );
-
-// // 输出 resolve success
+console.log(2);
 
 // MyPromise.resolve()
 //   .then(() => {
