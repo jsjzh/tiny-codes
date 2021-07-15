@@ -67,16 +67,16 @@ promise
 
 // ------------------------------------------------
 
-// MyPromise.resolve()
+// Promise.resolve()
 //   .then(() => {
 //     console.log(0);
-//     return MyPromise.resolve(4);
+//     return Promise.resolve(4);
 //   })
-//   .then((res: any) => {
+//   .then((res) => {
 //     console.log(res);
 //   });
 
-// MyPromise.resolve()
+// Promise.resolve()
 //   .then(() => {
 //     console.log(1);
 //   })
@@ -94,3 +94,19 @@ promise
 //   });
 
 // ------------------------------------------------
+
+// const sleep = (seconds) =>
+// new Promise((resolve) => setTimeout(() => resolve(seconds), seconds));
+
+// pAll([1, 2, 3]).then(o => console.log(o))
+// pAll([
+//   sleep(3000),
+//   sleep(2000),
+//   sleep(1000)
+// ]).then(o => console.log(o))
+// pAll([
+//   sleep(3000),
+//   sleep(2000),
+//   sleep(1000),
+//   Promise.reject(10000)
+// ]).then(o => console.log(o)).catch(e => console.log(e, '<- Error'))
