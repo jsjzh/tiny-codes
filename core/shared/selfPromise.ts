@@ -36,17 +36,22 @@ export default class SelfPromise {
   }
 
   then(onFulfilled: any, onRejected?: any) {
-    if (this.__status === FULFILLED) {
-      const result = onFulfilled(this.__value);
-      result && (this.__value = result);
-    } else if (this.__status === REJECTED) {
-      const result = onRejected(this.__reason);
-      result && (this.__reason = result);
-    } else if (this.__status === PENDING) {
-      this.__onFulfilledCallbacks.push(onFulfilled);
-      this.__onRejectedCallbacks.push(onRejected);
-    }
-    return this;
+    const promise = new SelfPromise((resolve, reject) => {
+      if (this.__status === FULFILLED) {
+        const result = onFulfilled(this.__value);
+
+        result instanceof SelfPromise
+          ? result.then(resolve, reject)
+          : resolve(result);
+      } else if (this.__status === REJECTED) {
+        onRejected(this.__reason);
+      } else if (this.__status === PENDING) {
+        this.__onFulfilledCallbacks.push(onFulfilled);
+        this.__onRejectedCallbacks.push(onRejected);
+      }
+    });
+
+    return promise;
   }
 
   resolve(value: any) {
