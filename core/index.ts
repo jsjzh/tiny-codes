@@ -1,39 +1,54 @@
-import SelfPromise from '@/shared/selfPromise';
+import SPromise from '@/shared/promise';
 
 // ------------------------------------------------
 
-// 1
-// resolve success
-// 2
-// resolve other
-
-const promise = new SelfPromise((resolve, reject) => {
-  resolve('success');
+const promise1 = new SPromise<number>((resolve, reject) => {
+  resolve(1);
+  reject('error');
 });
 
-function other() {
-  return new SelfPromise((resolve, reject) => {
-    resolve('other');
-  });
-}
-promise
-  .then((value: any) => {
-    console.log(1);
-    console.log('resolve', value);
-    return 123;
-  })
-  .then((value: any) => {
-    console.log(2);
-    console.log('resolve', value);
-  })
-  .then((value: any) => {
-    console.log(3);
-    console.log('resolve', value);
-  })
-  .then((value: any) => {
-    console.log(4);
-    console.log('resolve', value);
-  });
+const promise2 = promise1.then(
+  (value) => {
+    console.log('value1', value);
+    return '2';
+  },
+  (error) => {
+    console.log('error1', error);
+  },
+);
+
+debugger;
+
+const promise3 = promise2.then(
+  (value) => {
+    console.log('value2', value);
+    return 3;
+  },
+  (error) => {
+    console.log('error2', error);
+  },
+);
+
+const promise4 = promise3.then(
+  (value) => {
+    console.log('value3', value);
+    return '4';
+  },
+  (error) => {
+    console.log('error3', error);
+  },
+);
+
+// console.log(promise);
+
+// promise2.then(
+//   (value) => {
+//     console.log('value2', value);
+//   },
+//   (error) => {
+//     console.log('error', error);
+//   },
+// );
 
 // ------------------------------------------------
 

@@ -7,7 +7,7 @@ const REJECTED = 'rejected';
 const isFunction = (value) => typeof value === 'function';
 
 const resolvePromise = (promise2, x, resolve, reject) => {
-  // x 和 promise2 不能是同一个人，如果是同一个人就报错
+  // x 和 promise2 不能是同一个，如果是同一个就报错
   // 加一个开关，防止多次调用失败和成功，跟 pending 状态值一样的逻辑一样,走了失败就不能走成功了，走了成功一定不能在走失败
   if (promise2 === x) {
     return reject(
@@ -75,7 +75,8 @@ class MyPromise {
         this.status = RESOLVED;
         this.value = value;
         // 发布执行函数
-        this.onResolvedCallbacks.forEach((fn) => fn());
+        this.onResolvedCallbacks.length &&
+          this.onResolvedCallbacks.forEach((fn) => fn());
       }
     };
 
@@ -84,7 +85,8 @@ class MyPromise {
       if (this.status == PENDING) {
         this.status = REJECTED;
         this.reason = reason;
-        this.onRejectedCallbacks.forEach((fn) => fn());
+        this.onRejectedCallbacks.length &&
+          this.onRejectedCallbacks.forEach((fn) => fn());
       }
     };
     try {
@@ -108,20 +110,21 @@ class MyPromise {
       // 箭头函数，无论 this 一直是指向最外层的对象
       // 同步
       if (this.status == RESOLVED) {
-        setTimeout(() => {
+        const timer = setTimeout(() => {
           try {
             let x = onFulFilled(this.value);
-            // 添加一个 resolvePromise（）的方法来判断 x 跟 promise2 的状态，决定 promise2 是走成功还是失败
+            // 添加一个 resolvePromise() 的方法来判断 x 跟 promise2 的状态，决定 promise2 是走成功还是失败
             resolvePromise(promise2, x, resolve, reject);
           } catch (err) {
             // 中间任何一个环节报错都要走 reject()
             reject(err);
           }
+          clearTimeout(timer);
         }, 0); // 同步无法使用 promise2，所以借用 setiTimeout 异步的方式
         // MDN 0>=4ms
       }
       if (this.status == REJECTED) {
-        setTimeout(() => {
+        const timer = setTimeout(() => {
           try {
             let x = onRejected(this.reason);
             resolvePromise(promise2, x, resolve, reject);
@@ -129,6 +132,7 @@ class MyPromise {
             // 中间任何一个环节报错都要走 reject()
             reject(err);
           }
+          clearTimeout(timer);
         }, 0); // 同步无法使用 promise2，所以借用 setiTimeout 异步的方式
       }
       // 异步
@@ -136,7 +140,7 @@ class MyPromise {
         // 在 pending 状态的时候先订阅
         this.onResolvedCallbacks.push(() => {
           // todo
-          setTimeout(() => {
+          const timer = setTimeout(() => {
             try {
               let x = onFulFilled(this.value);
               resolvePromise(promise2, x, resolve, reject);
@@ -144,11 +148,12 @@ class MyPromise {
               // 中间任何一个环节报错都要走 reject()
               reject(err);
             }
+            clearTimeout(timer);
           }, 0); // 同步无法使用 promise2，所以借用 setiTimeout 异步的方式
         });
         this.onRejectedCallbacks.push(() => {
           // todo
-          setTimeout(() => {
+          const timer = setTimeout(() => {
             try {
               let x = onRejected(this.reason);
               resolvePromise(promise2, x, resolve, reject);
@@ -156,6 +161,7 @@ class MyPromise {
               // 中间任何一个环节报错都要走 reject()
               reject(err);
             }
+            clearTimeout(timer);
           }, 0); // 同步无法使用 promise2，所以借用 setiTimeout 异步的方式
         });
       }
