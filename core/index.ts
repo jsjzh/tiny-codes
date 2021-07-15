@@ -17,8 +17,6 @@ const promise2 = promise1.then(
   },
 );
 
-debugger;
-
 const promise3 = promise2.then(
   (value) => {
     console.log('value2', value);

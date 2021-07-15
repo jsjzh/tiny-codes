@@ -7,9 +7,23 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "test",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/test/index.js",
+      "outFiles": ["${workspaceFolder}/**/*.js"]
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "node",
+      "skipFiles": ["<node_internals>/**"],
+      "args": [
+        "-r",
+        "${workspaceFolder}/node_modules/tsconfig-paths/register.js",
+        "${workspaceFolder}/core/index.ts",
+        "--files"
+      ],
+      "program": "${workspaceFolder}/node_modules/.bin/ts-node",
       "outFiles": ["${workspaceFolder}/**/*.js"]
     }
   ]

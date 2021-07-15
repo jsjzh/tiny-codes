@@ -46,9 +46,9 @@ export default class SPromise<T> {
   ) {
     const promise = new SPromise<TValue | TError>((resolve, reject) => {
       if (this.__status === IStatus.FULFILLED) {
-        onFulfilled(this.__value);
+        resolve(onFulfilled(this.__value));
       } else if (this.__status === IStatus.REJECTED) {
-        onRejected(this.__error);
+        reject(onRejected(this.__error));
       }
     });
     return promise;
