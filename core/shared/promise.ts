@@ -51,6 +51,7 @@ export default class SPromise<T> {
         reject(onRejected(this.__error));
       }
     });
+
     return promise;
   }
 }

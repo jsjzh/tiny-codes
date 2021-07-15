@@ -2,15 +2,16 @@ import SPromise from '@/shared/promise';
 
 // ------------------------------------------------
 
-const promise1 = new SPromise<number>((resolve, reject) => {
+const promise1 = new SPromise<number>((resolve) => {
   resolve(1);
-  reject('error');
 });
 
 const promise2 = promise1.then(
   (value) => {
     console.log('value1', value);
-    return '2';
+    return new SPromise<string>((resolve) => {
+      resolve('success');
+    });
   },
   (error) => {
     console.log('error1', error);
