@@ -46,12 +46,26 @@ export default class SPromise<T> {
   ) {
     const promise = new SPromise<TValue | TError>((resolve, reject) => {
       if (this.__status === IStatus.FULFILLED) {
-        resolve(onFulfilled(this.__value));
+        const result = onFulfilled(this.__value);
+        resolvePromise<TValue>(result, resolve, reject);
       } else if (this.__status === IStatus.REJECTED) {
-        reject(onRejected(this.__error));
+        const result = onRejected(this.__error);
+        resolvePromise<TError>(result, resolve, reject);
       }
     });
 
     return promise;
   }
 }
+
+const resolvePromise = <T>(
+  someone: SPromise<T> | T,
+  resolve: (value: T) => void,
+  reject: (reason: any) => void,
+) => {
+  if (someone instanceof SPromise) {
+    someone.then((value) => resolvePromise(value, resolve, reject), reject);
+  } else {
+    return resolve(someone);
+  }
+};

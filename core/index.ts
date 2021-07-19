@@ -10,7 +10,11 @@ const promise2 = promise1.then(
   (value) => {
     console.log('value1', value);
     return new SPromise<string>((resolve) => {
-      resolve('success');
+      resolve(
+        new SPromise((resolve2) => {
+          resolve2('hello');
+        }),
+      );
     });
   },
   (error) => {
