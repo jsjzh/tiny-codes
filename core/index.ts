@@ -64,7 +64,11 @@
 // import reversePrint from '@/reversePrint';
 // import findContinuousSequence from '@/findContinuousSequence';
 // import replaceSpace from '@/replaceSpace';
-import getLeastNumbers from '@/getLeastNumbers';
+// import getLeastNumbers from '@/getLeastNumbers';
+// import reverseString from '@/reverseString';
+// import reverseLeftWords from '@/reverseLeftWords';
+// import fib from '@/fib';
+import isAnagram from '@/isAnagram';
 
 console.log();
 
@@ -132,6 +136,10 @@ console.log();
 // reversePrint();
 // findContinuousSequence();
 // replaceSpace();
-getLeastNumbers();
+// getLeastNumbers();
+// reverseString();
+// reverseLeftWords();
+// fib();
+isAnagram();
 
 console.log();

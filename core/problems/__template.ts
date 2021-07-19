@@ -16,5 +16,5 @@ const code = (str: string): boolean => {
 export default () => {
   logger.time(() => logger.log(code('')));
 
-  // logger.time(() => logger.log(better('')));
+  // logger.time(() => logger.log(better('')), 'better');
 };

@@ -26,22 +26,17 @@ const logger = new Logger(getFileName(__filename));
 const code = (head: IListNode): IListNode => {
   if (!head || !head.next) return head;
 
-  let preNode: IListNode = head;
-  let currentNode: IListNode = head.next;
+  let prev: IListNode = null;
+  let curr: IListNode = head;
 
-  preNode.next = null;
-
-  while (currentNode) {
-    const next: IListNode = currentNode.next;
-    currentNode.next = preNode;
-    preNode = currentNode;
-
-    if (next) {
-      currentNode = next;
-    } else break;
+  while (curr) {
+    const next: IListNode = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
   }
 
-  return currentNode;
+  return prev;
 };
 
 // const better = (head: IListNode): IListNode => {};
