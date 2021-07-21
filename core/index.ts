@@ -68,7 +68,16 @@
 // import reverseString from '@/reverseString';
 // import reverseLeftWords from '@/reverseLeftWords';
 // import fib from '@/fib';
-import isAnagram from '@/isAnagram';
+// import isAnagram from '@/isAnagram';
+// import isSubsequence from '@/isSubsequence';
+// import isUnique from '@/isUnique';
+// import exchange from '@/exchange';
+// import middleNode from '@/middleNode';
+// import search from '@/search';
+// import maxSubArray2 from '@/maxSubArray2';
+// import cQueue from '@/cQueue';
+// import intersection from '@/intersection';
+import spiralOrder from '@/spiralOrder';
 
 console.log();
 
@@ -140,6 +149,15 @@ console.log();
 // reverseString();
 // reverseLeftWords();
 // fib();
-isAnagram();
+// isAnagram();
+// isSubsequence();
+// isUnique();
+// exchange();
+// middleNode();
+// search();
+// maxSubArray2();
+// cQueue();
+// intersection();
+spiralOrder();
 
 console.log();
