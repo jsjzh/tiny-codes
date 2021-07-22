@@ -79,7 +79,13 @@
 // import intersection from '@/intersection';
 // import spiralOrder from '@/spiralOrder';
 // import deleteNode from '@/deleteNode';
-import countBits from '@/countBits';
+// import countBits from '@/countBits';
+// import hammingDistance from '@/hammingDistance';
+// import missingNumber from '@/missingNumber';
+// import fib2 from '@/fib2';
+// import mirrorTree from '@/mirrorTree';
+// import longestPalindrome from '@/longestPalindrome';
+import intersect from '@/intersect';
 
 console.log();
 
@@ -162,6 +168,12 @@ console.log();
 // intersection();
 // spiralOrder();
 // deleteNode();
-countBits();
+// countBits();
+// hammingDistance();
+// missingNumber();
+// fib2();
+// mirrorTree();
+longestPalindrome();
+intersect();
 
 console.log();

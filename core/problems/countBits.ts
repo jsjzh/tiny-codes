@@ -24,40 +24,21 @@ const code = (n: number): number[] => {
   return result;
 };
 
-// vector<int> countBits(int num) {
-//   vector<int> result(num+1);
-//   result[0] = 0;
-//   for(int i = 1; i <= num; i++)
-//   {
-//       if(i % 2 == 1)
-//       {
-//           result[i] = result[i-1] + 1;
-//       }
-//       else
-//       {
-//           result[i] = result[i/2];
-//       }
-//   }
+// 奇偶性判断建议用 i&1 的结果来进行判断
 
-//   return result;
-// }
-
-// 奇偶性判断建议用i&1的结果来进行判断
-
-// &	AND	如果两位都是 1 则设置每位为 1
-// |	OR	如果两位之一为 1 则设置每位为 1
-// ^	XOR	如果两位只有一位为 1 则设置每位为 1
-// ~	NOT	反转所有位
-// <<	零填充左位移	通过从右推入零向左位移，并使最左边的位脱落。
-// >>	有符号右位移	通过从左推入最左位的拷贝来向右位移，并使最右边的位脱落。
-// >>>	零填充右位移	通过从左推入零来向右位移，并使最右边的位脱落。
+// &: AND：如果两位都是 1 则设置每位为 1
+// |: OR：如果两位之一为 1 则设置每位为 1
+// ^: XOR：如果两位只有一位为 1 则设置每位为 1
+// ~: NOT：反转所有位
+// <<: 零填充左位移：通过从右推入零向左位移，并使最左边的位脱落
+// >>: 有符号右位移：通过从左推入最左位的拷贝来向右位移，并使最右边的位脱落
+// >>>: 零填充右位移：通过从左推入零来向右位移，并使最右边的位脱落
 
 const better = (n: number): number[] => {
-  const result: number[] = [];
+  const result: number[] = [0];
 
-  for (let i = 0; i <= n; i++) {
-    const bit = i.toString(2);
-  }
+  for (let i = 1; i <= n; i++)
+    result[i] = i & 1 ? result[i - 1] + 1 : result[i / 2];
 
   return result;
 };
@@ -65,5 +46,5 @@ const better = (n: number): number[] => {
 export default () => {
   logger.time(() => logger.log(code(5)));
 
-  // logger.time(() => logger.log(better(5)), 'better');
+  logger.time(() => logger.log(better(5)), 'better');
 };
