@@ -77,7 +77,9 @@
 // import maxSubArray2 from '@/maxSubArray2';
 // import cQueue from '@/cQueue';
 // import intersection from '@/intersection';
-import spiralOrder from '@/spiralOrder';
+// import spiralOrder from '@/spiralOrder';
+// import deleteNode from '@/deleteNode';
+import countBits from '@/countBits';
 
 console.log();
 
@@ -158,6 +160,8 @@ console.log();
 // maxSubArray2();
 // cQueue();
 // intersection();
-spiralOrder();
+// spiralOrder();
+// deleteNode();
+countBits();
 
 console.log();

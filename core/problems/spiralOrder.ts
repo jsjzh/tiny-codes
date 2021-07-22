@@ -15,7 +15,28 @@ const logger = new Logger(getFileName(__filename));
 // 输出：[1,2,3,4,8,12,11,10,9,5,6,7]
 
 const code = (matrix: number[][]): number[] => {
-  const result: number[] = [];
+  let result: number[] = [];
+
+  for (let i = 0; i < matrix.length; i++) {
+    const arr = matrix[i];
+
+    if (i === 0) {
+      result = result.concat(arr);
+    } else if (i === matrix.length - 1) {
+      result = result.concat(arr.reverse());
+      matrix.shift();
+      matrix.pop();
+      for (let j = matrix.length - 1; j > 0; j--) {
+        const innerArr = matrix[j];
+        const item = innerArr.shift();
+        item !== undefined && result.push(item);
+      }
+      i = -1;
+    } else {
+      const item = arr.pop();
+      item !== undefined && result.push(item);
+    }
+  }
 
   return result;
 };
@@ -23,12 +44,6 @@ const code = (matrix: number[][]): number[] => {
 // const better = (matrix: number[][]): number[] => {};
 
 export default () => {
-  // [01, 02, 03, 04]
-  // [05, 06, 07, 08]
-  // [09, 10, 11, 12]
-  // [13, 14, 15, 16]
-  // [17, 18, 19, 20]
-
   logger.time(() =>
     logger.log(
       code([
@@ -36,9 +51,26 @@ export default () => {
         [5, 6, 7, 8],
         [9, 10, 11, 12],
         [13, 14, 15, 16],
+        [17, 18, 19, 20],
       ]),
     ),
   );
 
-  // logger.time(() => logger.log(better('')), 'better');
+  logger.time(() =>
+    logger.log(code([[1], [2], [3], [4], [5], [6], [7], [8], [9], [10]])),
+  );
+
+  // logger.time(
+  //   () =>
+  //     logger.log(
+  //       better([
+  //         [1, 2, 3, 4],
+  //         [5, 6, 7, 8],
+  //         [9, 10, 11, 12],
+  //         [13, 14, 15, 16],
+  //         [17, 18, 19, 20],
+  //       ]),
+  //     ),
+  //   'better',
+  // );
 };
