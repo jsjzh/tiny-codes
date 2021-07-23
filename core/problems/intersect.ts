@@ -18,7 +18,20 @@ const logger = new Logger(getFileName(__filename));
 // 如果 nums2 的元素存储在磁盘上，内存是有限的，并且你不能一次加载所有的元素到内存中，你该怎么办？
 
 const code = (nums1: number[], nums2: number[]): number[] => {
-  return nums1;
+  const result: number[] = [];
+  const arrMap = [];
+
+  for (let i = 0; i < nums1.length; i++)
+    arrMap[nums1[i]] ? arrMap[nums1[i]]++ : (arrMap[nums1[i]] = 1);
+
+  for (let j = 0; j < nums2.length; j++) {
+    if (!arrMap[nums2[j]]) continue;
+
+    result.push(nums2[j]);
+    arrMap[nums2[j]]--;
+  }
+
+  return result;
 };
 
 // const better = (nums1: number[], nums2: number[]): number[] => {};

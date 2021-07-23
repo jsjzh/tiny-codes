@@ -85,7 +85,12 @@
 // import fib2 from '@/fib2';
 // import mirrorTree from '@/mirrorTree';
 // import longestPalindrome from '@/longestPalindrome';
-import intersect from '@/intersect';
+// import intersect from '@/intersect';
+// import canPlaceFlowers from '@/canPlaceFlowers';
+// import numWays from '@/numWays';
+// import hammingWeight from '@/hammingWeight';
+// import maxDepth2 from '@/maxDepth2';
+import diameterOfBinaryTree from '@/diameterOfBinaryTree';
 
 console.log();
 
@@ -174,6 +179,11 @@ console.log();
 // fib2();
 // mirrorTree();
 // longestPalindrome();
-intersect();
+// intersect();
+// canPlaceFlowers();
+// numWays();
+// hammingWeight();
+// maxDepth2();
+diameterOfBinaryTree();
 
 console.log();

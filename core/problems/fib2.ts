@@ -41,8 +41,8 @@ const better = (n: number): number => {
   if (n === 0) return 0;
   if (n === 1) return 1;
 
-  const n1 = map[n - 1] ? map[n - 1] : code(n - 1);
-  const n2 = map[n - 2] ? map[n - 2] : code(n - 2);
+  const n1 = map[n - 1] ? map[n - 1] : ((map[n - 1] = code(n - 1)), map[n - 1]);
+  const n2 = map[n - 2] ? map[n - 2] : ((map[n - 2] = code(n - 2)), map[n - 2]);
 
   return n1 + n2;
 };
