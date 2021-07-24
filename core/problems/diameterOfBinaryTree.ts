@@ -16,11 +16,23 @@ const logger = new Logger(getFileName(__filename));
 // 4   5
 // 返回 3, 它的长度是路径 [4,2,1,3] 或者 [5,2,1,3]。
 
+// 从每个节点下手，只要有左右节点的，都可以遍历
+// 然后有一个总的 len，Math.max
 const code = (root: ITreeNode): number => {
   if (!root) return 0;
   if (!root.left && !root.right) return 1;
 
-  return 0;
+  let len = -Infinity;
+
+  const core = (node: ITreeNode, count: number): number => {
+    if (!node) return count;
+
+    return core(node.left, count + 1) + core(node.right, count + 1);
+  };
+
+  core(root, 1);
+
+  return len;
 };
 
 // const better = (root: ITreeNode): number => {};
