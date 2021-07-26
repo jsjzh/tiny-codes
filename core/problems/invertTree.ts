@@ -18,11 +18,7 @@ const logger = new Logger(getFileName(__filename));
 
 const code = (root: ITreeNode): ITreeNode => {
   if (!root) return null;
-
-  const temp = root.right;
-  root.right = code(root.left);
-  root.left = code(temp);
-
+  [root.right, root.left] = [code(root.left), code(root.right)];
   return root;
 };
 
