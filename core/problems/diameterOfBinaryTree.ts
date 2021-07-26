@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 import { getFileName } from '../utils';
 import Logger from '../shared/logger';
 import TreeNode, { ITreeNode } from '../shared/treeNode';
@@ -27,7 +28,13 @@ const code = (root: ITreeNode): number => {
   const core = (node: ITreeNode, count: number): number => {
     if (!node) return count;
 
-    return core(node.left, count + 1) + core(node.right, count + 1);
+    return (
+      (len = Math.max(
+        core(node.left, count + 1) + core(node.right, count + 1),
+        len,
+      )),
+      len
+    );
   };
 
   core(root, 1);
