@@ -21,7 +21,7 @@ const logger = new Logger(getFileName(__filename));
 // 然后有一个总的 len，Math.max
 const code = (root: ITreeNode): number => {
   if (!root) return 0;
-  if (!root.left && !root.right) return 1;
+  if (!root.left && !root.right) return 0;
 
   let len = -Infinity;
 
