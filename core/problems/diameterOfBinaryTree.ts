@@ -25,30 +25,29 @@ const code = (root: ITreeNode): number => {
 
   let len = -Infinity;
 
-  const core = (node: ITreeNode, count: number): number => {
-    if (!node) return count;
+  const core = (node: ITreeNode): number => {
+    if (!node) return 0;
 
-    return (
-      (len = Math.max(
-        core(node.left, count + 1) + core(node.right, count + 1),
-        len,
-      )),
-      len
-    );
+    const left = core(node.left);
+    const right = core(node.right);
+
+    len = Math.max(len, left + right + 1);
+
+    return Math.max(left, right) + 1;
   };
 
-  core(root, 1);
+  core(root);
 
-  return len;
+  return len - 1;
 };
 
 // const better = (root: ITreeNode): number => {};
 
 export default () => {
   const l1 = new TreeNode(
-    3,
-    new TreeNode(9),
-    new TreeNode(20, new TreeNode(15), new TreeNode(7)),
+    1,
+    new TreeNode(2, new TreeNode(4), new TreeNode(5)),
+    new TreeNode(3),
   );
 
   logger.time(() => logger.log(code(l1)));
