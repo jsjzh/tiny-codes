@@ -8,7 +8,8 @@
   "license": "ISC",
   "main": "lib/index.js",
   "scripts": {
-    "start": "npx ts-node -r tsconfig-paths/register ./core/index.ts --files",
+    "start": "node bin/index.js",
+    "dev": "npx ts-node -r tsconfig-paths/register ./core/index.ts --files",
     "push": "npm run git:publish",
     "git:publish": "git add . && git commit -m '增加题解' && git push origin demo/leetcode"
   },
@@ -21,6 +22,7 @@
     "@types/node": "^15.12.4",
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
+    "chokidar": "^3.5.2",
     "eslint": "^7.29.0",
     "eslint-config-alloy": "^4.1.0",
     "tsconfig-paths": "^3.9.0",
