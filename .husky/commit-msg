@@ -1,5 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run clear
-npm run fix
+npx --no-install commitlint --edit "$1"
