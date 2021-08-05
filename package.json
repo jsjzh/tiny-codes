@@ -56,7 +56,7 @@
   },
   "lint-staged": {
     "core/*": [
-      "npm run clear && npm run fix"
+      "npm run fix"
     ]
   },
   "config": {

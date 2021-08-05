@@ -3,4 +3,3 @@ export const sum = (a: number, b: number) => {
 };
 
 console.log('HELLO');
-console.log('WORLD');
