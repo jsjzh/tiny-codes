@@ -8,10 +8,10 @@
   "license": "ISC",
   "main": "lib/index.js",
   "scripts": {
-    "dev": "ts-node -r tsconfig-paths/register ./core/index.ts --files",
     "clear": "rm -rf log src typings",
-    "release": "standard-version $1 --no-verify",
     "commit": "git-cz",
+    "release": "standard-version $1 --no-verify",
+    "dev": "ts-node -r tsconfig-paths/register ./core/index.ts --files",
     "build": "npm run fix && npm run build:ts",
     "build:ts": "rm -rf ./src && tsc --project ./",
     "test": "npm run test:ts && npm run test:jest",
