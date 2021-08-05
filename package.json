@@ -1,6 +1,6 @@
 {
   "name": "tiny-codes",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "master-ts",
   "keywords": [],
   "repository": "git@github.com:jsjzh/tiny-codes.git",
@@ -10,7 +10,7 @@
   "scripts": {
     "clear": "rm -rf log src typings",
     "commit": "git-cz",
-    "release": "standard-version --no-verify $1",
+    "release": "standard-version --no-verify $2",
     "dev": "ts-node -r tsconfig-paths/register ./core/index.ts --files",
     "build": "npm run fix && npm run build:ts",
     "build:ts": "rm -rf ./src && tsc --project ./",
