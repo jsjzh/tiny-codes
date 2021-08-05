@@ -1,0 +1,57 @@
+{
+  "name": "tiny-codes",
+  "version": "0.0.0",
+  "description": "master-ts",
+  "keywords": [],
+  "repository": "git@github.com:jsjzh/tiny-codes.git",
+  "author": "kimimi_king <kimimi_king@163.com>",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "scripts": {
+    "clear": "rm -rf log src typings",
+    "add": "git add .",
+    "commit": "git-cz",
+    "release": "standard-version --no-verify --release-as $1",
+    "dev": "ts-node -r tsconfig-paths/register ./core/index.ts --files",
+    "build": "npm run fix && npm run build:ts",
+    "build:ts": "rm -rf ./src && tsc --project ./",
+    "test": "npm run test:ts && npm run test:jest",
+    "test:ts": "tsc --project ./ --noEmit",
+    "test:jest": "jest test/*",
+    "fix": "npm run prettier:fix && npm run eslint:fix",
+    "eslint:fix": "eslint --fix --ext .ts --output-file ./log/eslint-error.json.log --format json core/*",
+    "prettier:fix": "prettier --check --write core/*",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.4.12",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "babel-jest": "^27.0.6",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-alloy": "^4.2.0",
+    "husky": "^7.0.1",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2",
+    "standard-version": "^9.3.1",
+    "ts-node": "^10.1.0",
+    "tsconfig-paths": "^3.10.1",
+    "typescript": "^4.3.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
