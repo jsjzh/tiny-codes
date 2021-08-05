@@ -8,6 +8,7 @@
   "license": "ISC",
   "main": "lib/index.js",
   "scripts": {
+    "i": "yarn && husky install",
     "dev": "ts-node -r tsconfig-paths/register ./core/index.ts --files",
     "clear": "rm -rf log src typings",
     "release": "standard-version",
