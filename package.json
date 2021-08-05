@@ -55,8 +55,8 @@
     }
   },
   "lint-staged": {
-    "*.ts": [
-      "eslint --fix --ext .ts --output-file ./log/eslint-error.json.log --format json"
+    "core/*": [
+      "npm run clear && npm run fix"
     ]
   },
   "config": {
