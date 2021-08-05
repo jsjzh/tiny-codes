@@ -9,7 +9,7 @@
   "main": "lib/index.js",
   "scripts": {
     "dev": "npx ts-node -r tsconfig-paths/register ./core/index.ts --files",
-    "build": "npm run fix && npm run test && npm run build:ts",
+    "build": "npm run fix && npm run build:ts",
     "build:ts": "rm -rf ./src && npx tsc --project ./",
     "test": "jest test/*",
     "fix": "npm run prettier:fix && npm run eslint:fix",
