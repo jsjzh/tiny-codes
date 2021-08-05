@@ -1,8 +1,11 @@
 {
   "name": "tiny-codes",
   "version": "1.0.2",
-  "description": "master-ts",
-  "keywords": [],
+  "description": "tiny-codes typescript 模板",
+  "keywords": [
+    "template",
+    "typescript"
+  ],
   "repository": "git@github.com:jsjzh/tiny-codes.git",
   "author": "kimimi_king <kimimi_king@163.com>",
   "license": "ISC",
