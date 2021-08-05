@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/jsjzh/tiny-codes/compare/v3.0.3...v0.0.2) (2021-08-05)
+
+
+### Bug Fixes
+
+* edit packages.json ([60c3065](https://github.com/jsjzh/tiny-codes/commit/60c3065b2a4e3feb53a557f73cded2aad764910e))
+* pre commit 新增 npm run test 流程,移除 lint-staged 依赖 ([80c9f1b](https://github.com/jsjzh/tiny-codes/commit/80c9f1b3c0e1ebb1f7f9f26f2c72e17d75e697f5))
+
 ### [3.0.3](https://github.com/jsjzh/tiny-codes/compare/v3.0.2...v3.0.3) (2021-08-05)
 
 
