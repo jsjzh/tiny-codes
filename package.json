@@ -20,7 +20,8 @@
     "test:jest": "jest test/*",
     "fix": "npm run prettier:fix && npm run eslint:fix",
     "eslint:fix": "eslint --fix --ext .ts --output-file ./log/eslint-error.json.log --format json core/*",
-    "prettier:fix": "prettier --check --write core/*"
+    "prettier:fix": "prettier --check --write core/*",
+    "prepare": "husky install"
   },
   "dependencies": {
     "tslib": "^2.3.0"
@@ -40,7 +41,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-alloy": "^4.2.0",
-    "husky": "^7.0.1",
+    "husky": "^7.0.0",
     "jest": "^27.0.6",
     "lint-staged": "^11.1.1",
     "prettier": "^2.3.2",
