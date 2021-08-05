@@ -55,7 +55,7 @@
     }
   },
   "lint-staged": {
-    "core/*": [
+    "*.ts": [
       "eslint --fix --ext .ts --output-file ./log/eslint-error.json.log --format json"
     ]
   },
