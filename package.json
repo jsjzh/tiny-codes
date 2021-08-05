@@ -8,19 +8,28 @@
   "license": "ISC",
   "main": "lib/index.js",
   "scripts": {
+    "i": "yarn",
+    "build": "npm run build:ts",
+    "build:ts": "rm -rf ./src && npx tsc --project ./",
+    "test": "",
+    "test:rulesCoverage": "",
+    "fix": "npm run prettier:fix && npm run eslint:fix",
+    "eslint:fix": "eslint --fix --ext .ts --config .eslintrc.js --output-file ./eslint-error.log core/",
+    "prettier:fix": "prettier --check --write --config .prettierrc.js core/",
     "dev": "npx ts-node -r tsconfig-paths/register ./core/index.ts --files"
   },
   "dependencies": {
-    "ts-node": "^10.0.0",
+    "ts-node": "^10.1.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@types/node": "^15.12.4",
-    "@typescript-eslint/eslint-plugin": "^4.28.0",
-    "@typescript-eslint/parser": "^4.28.0",
-    "eslint": "^7.29.0",
-    "eslint-config-alloy": "^4.1.0",
-    "tsconfig-paths": "^3.9.0",
-    "typescript": "^4.3.4"
+    "@types/node": "^16.4.12",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "eslint": "^7.32.0",
+    "eslint-config-alloy": "^4.2.0",
+    "prettier": "^2.3.2",
+    "tsconfig-paths": "^3.10.1",
+    "typescript": "^4.3.5"
   }
 }

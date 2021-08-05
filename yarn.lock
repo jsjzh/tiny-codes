@@ -98,12 +98,12 @@
   resolved "http://registry.npm.souche-inc.com/@types/json-schema/download/@types/json-schema-7.0.9.tgz#97edc9037ea0c38585320b28964dde3b39e4660d"
   integrity sha1-l+3JA36gw4WFMgsolk3eOznkZg0=
 
-"@types/node@^15.12.4":
-  version "15.14.7"
-  resolved "http://registry.npm.souche-inc.com/@types/node/download/@types/node-15.14.7.tgz#29fea9a5b14e2b75c19028e1c7a32edd1e89fe92"
-  integrity sha1-Kf6ppbFOK3XBkCjhx6Mu3R6J/pI=
+"@types/node@^16.4.12":
+  version "16.4.12"
+  resolved "http://registry.npm.souche-inc.com/@types/node/download/@types/node-16.4.12.tgz#961e3091f263e6345d2d84afab4e047a60b4b11b"
+  integrity sha1-lh4wkfJj5jRdLYSvq04EemC0sRs=
 
-"@typescript-eslint/eslint-plugin@^4.28.0":
+"@typescript-eslint/eslint-plugin@^4.29.0":
   version "4.29.0"
   resolved "http://registry.npm.souche-inc.com/@typescript-eslint/eslint-plugin/download/@typescript-eslint/eslint-plugin-4.29.0.tgz#b866c9cd193bfaba5e89bade0015629ebeb27996"
   integrity sha1-uGbJzRk7+rpeibreABVinr6yeZY=
@@ -128,7 +128,7 @@
     eslint-scope "^5.1.1"
     eslint-utils "^3.0.0"
 
-"@typescript-eslint/parser@^4.28.0":
+"@typescript-eslint/parser@^4.29.0":
   version "4.29.0"
   resolved "http://registry.npm.souche-inc.com/@typescript-eslint/parser/download/@typescript-eslint/parser-4.29.0.tgz#e5367ca3c63636bb5d8e0748fcbab7a4f4a04289"
   integrity sha1-5TZ8o8Y2NrtdjgdI/Lq3pPSgQok=
@@ -391,7 +391,7 @@ escape-string-regexp@^4.0.0:
   resolved "http://registry.npm.souche-inc.com/escape-string-regexp/download/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha1-FLqDpdNz49MR5a/KKc9b+tllvzQ=
 
-eslint-config-alloy@^4.1.0:
+eslint-config-alloy@^4.2.0:
   version "4.2.0"
   resolved "http://registry.npm.souche-inc.com/eslint-config-alloy/download/eslint-config-alloy-4.2.0.tgz#6913b0bc8e96c6179b13a26ab6bcb9542d44d3bf"
   integrity sha1-aROwvI6WxhebE6Jqtry5VC1E078=
@@ -428,7 +428,7 @@ eslint-visitor-keys@^2.0.0:
   resolved "http://registry.npm.souche-inc.com/eslint-visitor-keys/download/eslint-visitor-keys-2.1.0.tgz#f65328259305927392c938ed44eb0a5c9b2bd303"
   integrity sha1-9lMoJZMFknOSyTjtROsKXJsr0wM=
 
-eslint@^7.29.0:
+eslint@^7.32.0:
   version "7.32.0"
   resolved "http://registry.npm.souche-inc.com/eslint/download/eslint-7.32.0.tgz#c6d328a14be3fb08c8d1d21e12c02fdb7a2a812d"
   integrity sha1-xtMooUvj+wjI0dIeEsAv23oqgS0=
@@ -854,6 +854,11 @@ prelude-ls@^1.2.1:
   resolved "http://registry.npm.souche-inc.com/prelude-ls/download/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha1-3rxkidem5rDnYRiIzsiAM30xY5Y=
 
+prettier@^2.3.2:
+  version "2.3.2"
+  resolved "http://registry.npm.souche-inc.com/prettier/download/prettier-2.3.2.tgz#ef280a05ec253712e486233db5c6f23441e7342d"
+  integrity sha1-7ygKBewlNxLkhiM9tcbyNEHnNC0=
+
 progress@^2.0.0:
   version "2.0.3"
   resolved "http://registry.npm.souche-inc.com/progress/download/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
@@ -1018,7 +1023,7 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-ts-node@^10.0.0:
+ts-node@^10.1.0:
   version "10.1.0"
   resolved "http://registry.npm.souche-inc.com/ts-node/download/ts-node-10.1.0.tgz#e656d8ad3b61106938a867f69c39a8ba6efc966e"
   integrity sha1-5lbYrTthEGk4qGf2nDmoum78lm4=
@@ -1034,7 +1039,7 @@ ts-node@^10.0.0:
     source-map-support "^0.5.17"
     yn "3.1.1"
 
-tsconfig-paths@^3.9.0:
+tsconfig-paths@^3.10.1:
   version "3.10.1"
   resolved "http://registry.npm.souche-inc.com/tsconfig-paths/download/tsconfig-paths-3.10.1.tgz#79ae67a68c15289fdf5c51cb74f397522d795ed7"
   integrity sha1-ea5npowVKJ/fXFHLdPOXUi15Xtc=
@@ -1072,7 +1077,7 @@ type-fest@^0.20.2:
   resolved "http://registry.npm.souche-inc.com/type-fest/download/type-fest-0.20.2.tgz#1bf207f4b28f91583666cb5fbd327887301cd5f4"
   integrity sha1-G/IH9LKPkVg2ZstfvTJ4hzAc1fQ=
 
-typescript@^4.3.4:
+typescript@^4.3.5:
   version "4.3.5"
   resolved "http://registry.npm.souche-inc.com/typescript/download/typescript-4.3.5.tgz#4d1c37cc16e893973c45a06886b7113234f119f4"
   integrity sha1-TRw3zBbok5c8RaBohrcRMjTxGfQ=
