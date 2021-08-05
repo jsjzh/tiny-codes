@@ -90,7 +90,8 @@
 // import numWays from '@/numWays';
 // import hammingWeight from '@/hammingWeight';
 // import maxDepth2 from '@/maxDepth2';
-import diameterOfBinaryTree from '@/diameterOfBinaryTree';
+// // TODO // import diameterOfBinaryTree from '@/diameterOfBinaryTree';
+import minCostClimbingStairs from '@/minCostClimbingStairs';
 
 console.log();
 
@@ -184,6 +185,7 @@ console.log();
 // numWays();
 // hammingWeight();
 // maxDepth2();
-diameterOfBinaryTree();
+// diameterOfBinaryTree();
+minCostClimbingStairs();
 
 console.log();
