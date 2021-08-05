@@ -47,15 +47,13 @@
   },
   "lint-staged": {
     "*": [
-      "npm run clear",
-      "npm run fix",
       "npm run test"
     ]
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run clear && npm run fix && lint-staged"
     }
   }
 }
