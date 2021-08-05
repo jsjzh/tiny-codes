@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/jsjzh/tiny-codes/compare/v2.0.0...v2.0.1) (2021-08-05)
+
+
+### Bug Fixes
+
+* test ([e873591](https://github.com/jsjzh/tiny-codes/commit/e873591bb3d1a56577243e118ffc6a943fb83f6b))
+
 ## [2.0.0](https://github.com/jsjzh/tiny-codes/compare/v1.1.0...v2.0.0) (2021-08-05)
 
 
