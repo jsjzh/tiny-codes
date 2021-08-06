@@ -54,8 +54,5 @@ export default () => {
   logger.time(() => logger.log(better([1, 2])), 'better');
   logger.time(() => logger.log(better([10, 15, 20])), 'better');
   logger.time(() => logger.log(better([10, 15, 20, 1])), 'better');
-  logger.time(
-    () => logger.log(better([1, 100, 1, 1, 1, 100, 1, 1, 100, 1])),
-    'better',
-  );
+  logger.time(() => logger.log(better([1, 100, 1, 1, 1, 100, 1, 1, 100, 1])), 'better');
 };

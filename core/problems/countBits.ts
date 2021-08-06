@@ -18,8 +18,7 @@ const logger = new Logger(getFileName(__filename));
 const code = (n: number): number[] => {
   const result: number[] = [];
 
-  for (let i = 0; i <= n; i++)
-    result.push(i.toString(2).replace(/0/g, '').length);
+  for (let i = 0; i <= n; i++) result.push(i.toString(2).replace(/0/g, '').length);
 
   return result;
 };
@@ -37,8 +36,7 @@ const code = (n: number): number[] => {
 const better = (n: number): number[] => {
   const result: number[] = [0];
 
-  for (let i = 1; i <= n; i++)
-    result[i] = i & 1 ? result[i - 1] + 1 : result[i / 2];
+  for (let i = 1; i <= n; i++) result[i] = i & 1 ? result[i - 1] + 1 : result[i / 2];
 
   return result;
 };

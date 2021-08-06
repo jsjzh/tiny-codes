@@ -12,8 +12,7 @@ const logger = new Logger(getFileName(__filename));
 // 输出：0
 
 const code = (numbers: number[]): number => {
-  for (let i = 0; i < numbers.length; i++)
-    if (numbers[i] > numbers[i + 1]) return numbers[i + 1];
+  for (let i = 0; i < numbers.length; i++) if (numbers[i] > numbers[i + 1]) return numbers[i + 1];
   return numbers[0];
 };
 

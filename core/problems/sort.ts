@@ -122,9 +122,7 @@ function merge(left: number[], right: number[]) {
 }
 
 export default () => {
-  const arr = new Array(10000)
-    .fill(null)
-    .map(() => Math.floor(Math.random() * 1000));
+  const arr = new Array(10000).fill(null).map(() => Math.floor(Math.random() * 1000));
 
   logger.time(() => arr.slice().sort((a, b) => a - b), 'arrSort');
   logger.time(() => bubleSort(arr.slice()), 'bubleSort');

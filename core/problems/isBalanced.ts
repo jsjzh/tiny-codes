@@ -50,29 +50,17 @@ function deep(node: ITreeNode, count: number): number {
 const code = (root: ITreeNode): boolean => {
   if (!root) return true;
 
-  return (
-    code(root.left) &&
-    code(root.right) &&
-    Math.abs(deep(root.left, 1) - deep(root.right, 1)) <= 1
-  );
+  return code(root.left) && code(root.right) && Math.abs(deep(root.left, 1) - deep(root.right, 1)) <= 1;
 };
 
 // const better = (root: ITreeNode): boolean => {};
 
 export default () => {
-  const l1 = new TreeNode(
-    3,
-    new TreeNode(9),
-    new TreeNode(2, new TreeNode(5), new TreeNode(7)),
-  );
+  const l1 = new TreeNode(3, new TreeNode(9), new TreeNode(2, new TreeNode(5), new TreeNode(7)));
 
   const l2 = new TreeNode(
     1,
-    new TreeNode(
-      2,
-      new TreeNode(3),
-      new TreeNode(3, new TreeNode(4), new TreeNode(4)),
-    ),
+    new TreeNode(2, new TreeNode(3), new TreeNode(3, new TreeNode(4), new TreeNode(4))),
     new TreeNode(2),
   );
 

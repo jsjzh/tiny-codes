@@ -52,11 +52,6 @@ export default class Logger {
   }
 
   private __log(type: 'log' | 'info' | 'warn' | 'error', args: any[]) {
-    console[type].apply(console, [
-      this.title,
-      `${type}:`,
-      dayjs().format('YYYY/MM/DD HH:mm:ss'),
-      ...args,
-    ]);
+    console[type].apply(console, [this.title, `${type}:`, dayjs().format('YYYY/MM/DD HH:mm:ss'), ...args]);
   }
 }

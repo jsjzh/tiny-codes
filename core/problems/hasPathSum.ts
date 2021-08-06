@@ -43,10 +43,7 @@ const code = (root: ITreeNode, targetSum: number): boolean => {
   if (!root) return false;
   if (targetSum === root.val && !root.left && !root.right) return true;
 
-  return (
-    code(root.left, targetSum - root.val) ||
-    code(root.right, targetSum - root.val)
-  );
+  return code(root.left, targetSum - root.val) || code(root.right, targetSum - root.val);
 };
 
 // const better = (root: ITreeNode, targetSum: number): boolean => {};

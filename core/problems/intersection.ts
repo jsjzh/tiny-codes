@@ -21,8 +21,7 @@ const code = (nums1: number[], nums2: number[]): number[] => {
 
   const result: number[] = [];
 
-  for (let i = 0; i < small.length; i++)
-    big.includes(small[i]) && result.push(small[i]);
+  for (let i = 0; i < small.length; i++) big.includes(small[i]) && result.push(small[i]);
 
   return result;
 };

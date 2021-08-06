@@ -20,10 +20,7 @@ const code = (root: ITreeNode): number => {
 
   function deepCount(node: ITreeNode, count: number): number {
     if (!node) return count;
-    return Math.max(
-      deepCount(node.left, count + 1),
-      deepCount(node.right, count + 1),
-    );
+    return Math.max(deepCount(node.left, count + 1), deepCount(node.right, count + 1));
   }
 
   return Math.max(deepCount(root.left, 1), deepCount(root.right, 1));
@@ -53,11 +50,7 @@ export default () => {
     new TreeNode(2, new TreeNode(4), new TreeNode(3)),
   );
 
-  const l2 = new TreeNode(
-    3,
-    new TreeNode(9),
-    new TreeNode(2, new TreeNode(1), new TreeNode(7)),
-  );
+  const l2 = new TreeNode(3, new TreeNode(9), new TreeNode(2, new TreeNode(1), new TreeNode(7)));
 
   logger.time(() => logger.log(code(l1)));
   logger.time(() => logger.log(code(l2)));

@@ -21,8 +21,7 @@ const code = (nums1: number[], nums2: number[]): number[] => {
   const result: number[] = [];
   const arrMap = [];
 
-  for (let i = 0; i < nums1.length; i++)
-    arrMap[nums1[i]] ? arrMap[nums1[i]]++ : (arrMap[nums1[i]] = 1);
+  for (let i = 0; i < nums1.length; i++) arrMap[nums1[i]] ? arrMap[nums1[i]]++ : (arrMap[nums1[i]] = 1);
 
   for (let j = 0; j < nums2.length; j++) {
     if (!arrMap[nums2[j]]) continue;

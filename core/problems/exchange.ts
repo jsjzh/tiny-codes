@@ -18,8 +18,7 @@ const code = (nums: number[]): number[] => {
   const left = [];
   const right = [];
 
-  for (let i = 0; i < nums.length; i++)
-    nums[i] % 2 ? left.push(nums[i]) : right.push(nums[i]);
+  for (let i = 0; i < nums.length; i++) nums[i] % 2 ? left.push(nums[i]) : right.push(nums[i]);
 
   return left.concat(right);
 };

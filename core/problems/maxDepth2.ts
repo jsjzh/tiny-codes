@@ -31,11 +31,7 @@ const code = (root: ITreeNode): number => {
 // const better = (root: ITreeNode): number => {};
 
 export default () => {
-  const l1 = new TreeNode(
-    3,
-    new TreeNode(9),
-    new TreeNode(20, new TreeNode(15), new TreeNode(7)),
-  );
+  const l1 = new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
 
   logger.time(() => logger.log(code(l1)));
 

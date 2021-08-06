@@ -25,8 +25,7 @@ const code = (s: string, t: string): boolean => {
   const sArr = s.split('');
   const tArr = t.split('');
 
-  for (let i = 0; i < sArr.length; i++)
-    map[sArr[i]] ? (map[sArr[i]] += 1) : (map[sArr[i]] = 1);
+  for (let i = 0; i < sArr.length; i++) map[sArr[i]] ? (map[sArr[i]] += 1) : (map[sArr[i]] = 1);
 
   for (let t = 0; t < tArr.length; t++) {
     if (map[tArr[t]] === undefined) return false;
@@ -34,8 +33,7 @@ const code = (s: string, t: string): boolean => {
   }
 
   for (const key in map) {
-    if (Object.prototype.hasOwnProperty.call(map, key))
-      if (map[key] !== 0) return false;
+    if (Object.prototype.hasOwnProperty.call(map, key)) if (map[key] !== 0) return false;
   }
 
   return true;

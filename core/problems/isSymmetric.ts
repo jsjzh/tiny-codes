@@ -44,11 +44,7 @@ export default () => {
     new TreeNode(2, new TreeNode(4), new TreeNode(3)),
   );
 
-  const l2 = new TreeNode(
-    1,
-    new TreeNode(2, null, new TreeNode(3)),
-    new TreeNode(2, null, new TreeNode(3)),
-  );
+  const l2 = new TreeNode(1, new TreeNode(2, null, new TreeNode(3)), new TreeNode(2, null, new TreeNode(3)));
 
   logger.timeStart();
   logger.log(code(l1));

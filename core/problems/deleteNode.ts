@@ -39,10 +39,7 @@ const code = (head: IListNode, val: number): IListNode => {
 // const better = (head: IListNode, val: number): IListNode => {};
 
 export default () => {
-  const list = new ListNode(
-    1,
-    new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))),
-  );
+  const list = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
 
   logger.time(() => logger.log(code(list, 2)));
 

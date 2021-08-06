@@ -16,8 +16,7 @@ const logger = new Logger(getFileName(__filename));
 
 const code = (astr: string): boolean => {
   if (!astr.length || astr.length === 1) return true;
-  for (let i = 0; i < astr.length; i++)
-    if (astr.indexOf(astr[i], i + 1) !== -1) return false;
+  for (let i = 0; i < astr.length; i++) if (astr.indexOf(astr[i], i + 1) !== -1) return false;
   return true;
 };
 
