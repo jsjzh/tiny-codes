@@ -20,9 +20,9 @@
     "build:ts": "tsc --project ./",
     "test": "npm run test:ts",
     "test:ts": "tsc --project ./ --noEmit",
-    "fix": "npm run prettier:fix && npm run eslint:fix",
-    "eslint:fix": "eslint --fix --ext .ts --output-file ./log/eslint-error.json.log --format json core/*",
-    "prettier:fix": "prettier --check --write core/*",
+    "fix": "npm run fix:prettier && npm run fix:eslint",
+    "fix:eslint": "eslint --fix --ext .ts --output-file ./log/eslint-error.json.log --format json core/*",
+    "fix:prettier": "prettier --check --write core/*",
     "prepare": "husky install"
   },
   "dependencies": {
