@@ -4186,6 +4186,11 @@ modify-values@^1.0.0:
   resolved "http://registry.npm.souche-inc.com/modify-values/download/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha1-s5OfpgVUZHTj4+PGPWS9Q7TuYCI=
 
+module-alias@^2.2.2:
+  version "2.2.2"
+  resolved "http://registry.npm.souche-inc.com/module-alias/download/module-alias-2.2.2.tgz#151cdcecc24e25739ff0aa6e51e1c5716974c0e0"
+  integrity sha1-FRzc7MJOJXOf8KpuUeHFcWl0wOA=
+
 ms@2.1.2:
   version "2.1.2"
   resolved "http://registry.npm.souche-inc.com/ms/download/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"

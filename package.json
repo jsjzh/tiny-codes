@@ -13,8 +13,8 @@
   "scripts": {
     "add": "git add .",
     "commit": "git-cz",
-    "start": "node bin/index.js",
     "release": "standard-version --no-verify --release-as $1",
+    "start": "node bin/index.js",
     "dev": "ts-node -r tsconfig-paths/register ./core/index.ts --files",
     "prebuild": "npm run clear && npm run test && npm run fix",
     "clear": "rm -rf log src typings",
@@ -30,10 +30,10 @@
   },
   "dependencies": {
     "dayjs": "^1.10.5",
+    "module-alias": "^2.2.2",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "chokidar": "^3.5.2",
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-typescript": "^7.15.0",
@@ -44,6 +44,7 @@
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
     "babel-jest": "^27.0.6",
+    "chokidar": "^3.5.2",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
@@ -60,5 +61,9 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@": "src/problems"
   }
 }

@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+require('module-alias/register');
+
 // import sort from '@/sort';
 
 // import twoSum from '@/twoSum';
@@ -185,7 +188,7 @@ console.log();
 // numWays();
 // hammingWeight();
 // maxDepth2();
-// diameterOfBinaryTree();
+// // diameterOfBinaryTree();
 minCostClimbingStairs();
 
 console.log();
