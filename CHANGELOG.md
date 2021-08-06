@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/jsjzh/tiny-codes/compare/v0.0.3...v2.0.0) (2021-08-06)
+
+
+### Features
+
+* 启动 jest 用作检测题目是否通过 ([23bb840](https://github.com/jsjzh/tiny-codes/commit/23bb840fe01e9d2651d749ef4991498c9bcab5b5))
+* 增加 module-alias,用于解决 typescript 编译代码后无法识别 alias 路径的问题 ([ab19716](https://github.com/jsjzh/tiny-codes/commit/ab197167cf54d9b03a01acb8a8d83ecc945ad5c2))
+
 ## [1.0.0](https://github.com/jsjzh/tiny-codes/compare/v0.0.3...v1.0.0) (2021-08-06)
 
 
