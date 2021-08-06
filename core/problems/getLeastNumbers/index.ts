@@ -13,7 +13,7 @@
  * 输出：[0]
  */
 
- export const code1 = (arr: number[], k: number): number[] => {
+export const code1 = (arr: number[], k: number): number[] => {
   if (!k) return [];
   if (k === arr.length) return arr;
   if (arr.length === 1) return [arr[0]];

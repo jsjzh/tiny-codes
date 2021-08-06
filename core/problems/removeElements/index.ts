@@ -48,4 +48,3 @@ export const code1 = (head: IListNode, val: number): IListNode => {
 };
 
 // export const code2 = (head: IListNode, val: number): IListNode => {};
-

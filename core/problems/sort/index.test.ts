@@ -16,7 +16,6 @@ const result = [
   925, 953, 955, 969, 990,
 ];
 
-
 it('bubleSort test1', () => expect(bubleSort(arr.slice())).toEqual(result));
 
 it('selectSort test1', () => expect(selectSort(arr.slice())).toEqual(result));
