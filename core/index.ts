@@ -94,7 +94,7 @@ require('module-alias/register');
 // import hammingWeight from '@/hammingWeight';
 // import maxDepth2 from '@/maxDepth2';
 // // TODO // import diameterOfBinaryTree from '@/diameterOfBinaryTree';
-import minCostClimbingStairs from '@/minCostClimbingStairs';
+// import minCostClimbingStairs from '@/minCostClimbingStairs';
 
 console.log();
 
@@ -189,6 +189,6 @@ console.log();
 // hammingWeight();
 // maxDepth2();
 // // diameterOfBinaryTree();
-minCostClimbingStairs();
+// minCostClimbingStairs();
 
 console.log();

@@ -9,7 +9,6 @@
   "repository": "git@github.com:jsjzh/tiny-codes.git",
   "author": "kimimi_king <kimimi_king@163.com>",
   "license": "ISC",
-  "main": "src/index.js",
   "scripts": {
     "add": "git add .",
     "commit": "git-cz",
@@ -17,20 +16,16 @@
     "start": "node bin/index.js",
     "dev": "ts-node -r tsconfig-paths/register ./core/index.ts --files",
     "prebuild": "npm run clear && npm run test && npm run fix",
-    "clear": "rm -rf log src typings",
-    "build": "npm run build:ts",
-    "build:ts": "tsc --project ./",
+    "clear": "rm -rf log",
     "test": "npm run test:ts && npm run test:jest",
     "test:ts": "tsc --project ./ --noEmit",
-    "test:jest": "jest test/*",
-    "fix": "npm run prettier:fix && npm run eslint:fix",
-    "eslint:fix": "eslint --fix --ext .ts --output-file ./log/eslint-error.json.log --format json core/*",
-    "prettier:fix": "prettier --check --write core/*",
+    "test:jest": "jest core/*",
+    "fix": "npm run fix:prettier && npm run fix:eslint",
+    "fix:eslint": "eslint --fix --ext .ts --output-file ./log/eslint-error.json.log --format json core/*",
+    "fix:prettier": "prettier --check --write core/*",
     "prepare": "husky install"
   },
   "dependencies": {
-    "dayjs": "^1.10.5",
-    "module-alias": "^2.2.2",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -61,8 +56,5 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  },
-  "_moduleAliases": {
-    "@": "src/problems"
   }
 }

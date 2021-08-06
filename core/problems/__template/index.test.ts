@@ -1,9 +1,5 @@
-import { code, better } from './';
+import { code1, code2 } from '.';
 
-it('code', () => {
-  expect(code('')).toBeFalsy();
-});
+it('code1 test1', () => expect(code1('')).toBe(''));
 
-it('better', () => {
-  expect(better('')).toBeFalsy();
-});
+it('code2 test1', () => expect(code2('str')).toBe('str'));
