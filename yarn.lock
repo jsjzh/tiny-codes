@@ -2347,11 +2347,6 @@ dateformat@^3.0.0:
   resolved "http://registry.npm.souche-inc.com/dateformat/download/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   integrity sha1-puN0maTZqc+F71hyBE1ikByYia4=
 
-dayjs@^1.10.5:
-  version "1.10.5"
-  resolved "http://registry.npm.souche-inc.com/dayjs/download/dayjs-1.10.5.tgz#5600df4548fc2453b3f163ebb2abbe965ccfb986"
-  integrity sha1-VgDfRUj8JFOz8WPrsqu+llzPuYY=
-
 debug@4, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1:
   version "4.3.2"
   resolved "http://registry.npm.souche-inc.com/debug/download/debug-4.3.2.tgz#f0a49c18ac8779e31d4a0c6029dfb76873c7428b"
@@ -4185,11 +4180,6 @@ modify-values@^1.0.0:
   version "1.0.1"
   resolved "http://registry.npm.souche-inc.com/modify-values/download/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha1-s5OfpgVUZHTj4+PGPWS9Q7TuYCI=
-
-module-alias@^2.2.2:
-  version "2.2.2"
-  resolved "http://registry.npm.souche-inc.com/module-alias/download/module-alias-2.2.2.tgz#151cdcecc24e25739ff0aa6e51e1c5716974c0e0"
-  integrity sha1-FRzc7MJOJXOf8KpuUeHFcWl0wOA=
 
 ms@2.1.2:
   version "2.1.2"
