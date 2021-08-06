@@ -63,7 +63,6 @@
     }
   },
   "_moduleAliases": {
-    "@root": ".",
     "@": "src/problems"
   }
 }
