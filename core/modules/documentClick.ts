@@ -9,4 +9,4 @@ const getClientXY = _.pick(['clientX', 'clientY']);
 
 const click$ = R.fromEvent<MouseEvent>(document, 'click').pipe(R.map(getClientXY));
 
-export default click$;
+click$.subscribe(console.log);

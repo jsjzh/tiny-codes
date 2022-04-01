@@ -1,3 +1,2 @@
-import documentClick from './modules/documentClick';
-
-documentClick.subscribe(console.log);
+// import './modules/documentClick';
+import './modules/observable';
