@@ -17,7 +17,7 @@
     "dev": "ts-node -r tsconfig-paths/register ./core/index.ts --files",
     "prebuild": "npm run clear && npm run test && npm run fix",
     "serve": "parcel index.html --open",
-    "clear": "rm -rf log src typings",
+    "clear": "rm -rf log src typings .parcel-cache dist",
     "build": "npm run build:ts",
     "build:ts": "tsc --project ./",
     "test": "npm run test:ts",
