@@ -11,5 +11,3 @@ const observable$ = new R.Observable((subscriber) => {
 });
 
 observable$.subscribe(console.log);
-observable$.subscribe(console.log);
-observable$.subscribe(console.log);
