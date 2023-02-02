@@ -3,11 +3,11 @@ const workerEmitter = new WorkerEmitter(worker);
 
 const $upload = document.querySelector("#upload");
 
+const chunkSize = 50 * unitMaps.KB;
+// const chunkSize = 20 * unitMaps.MB;
+
 const handleUpload = async (e) => {
   const files = Array.from(e.target.files);
-
-  const chunkSize = 50 * unitMaps.KB;
-  // const chunkSize = 20 * unitMaps.MB;
 
   const dealFiles = files.map((file) => ({
     name: file.name || "裤裆.gif",
@@ -91,7 +91,7 @@ const handleUpload = async (e) => {
 
 $upload.addEventListener("change", handleUpload);
 
-demo("裆");
+// demo("裆");
 
 // const { code, encode, mime } = parseDataURI(
 //   "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="

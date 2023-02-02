@@ -14,10 +14,10 @@ server.on("request", async (request, response) => {
   if (request.url === "/demo") {
     response.setHeader(
       "Access-Control-Allow-Origin",
-      "http://localhost.charlesproxy.com:8080"
+      "http://127.0.0.1:8080"
     );
     response.setHeader("Access-Control-Allow-Headers", "*");
-    response.writeHead(200, { "content-type": "text/plain; charset=unicode" });
+    response.writeHead(200, { "content-type": "text/plain; charset=utf-8" });
 
     let data = "";
     request.on("data", (body) => {
@@ -32,7 +32,7 @@ server.on("request", async (request, response) => {
   if (request.url === "/upload") {
     response.setHeader(
       "Access-Control-Allow-Origin",
-      "http://localhost.charlesproxy.com:8080"
+      "http://127.0.0.1:8080"
     );
     response.setHeader("Access-Control-Allow-Headers", "*");
 
@@ -74,7 +74,7 @@ server.on("request", async (request, response) => {
   if (request.url === "/merge") {
     response.setHeader(
       "Access-Control-Allow-Origin",
-      "http://localhost.charlesproxy.com:8080"
+      "http://127.0.0.1:8080"
     );
     response.setHeader("Access-Control-Allow-Headers", "*");
 
